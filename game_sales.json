@@ -1,0 +1,2932 @@
+[
+  {
+    "Genre": "Action",
+    "Platform": "PS3",
+    "NA_Sales": 121.16,
+    "EU_Sales": 110.62,
+    "JP_Sales": 29.59,
+    "Other_Sales": 46.51,
+    "Global_Sales": 307.88,
+    "Percentage": 3.45
+  },
+  {
+    "Genre": "Action",
+    "Platform": "PS2",
+    "NA_Sales": 127.82,
+    "EU_Sales": 71.44,
+    "JP_Sales": 25.81,
+    "Other_Sales": 47.64,
+    "Global_Sales": 272.76,
+    "Percentage": 3.06
+  },
+  {
+    "Genre": "Action",
+    "Platform": "X360",
+    "NA_Sales": 141.39,
+    "EU_Sales": 76.81,
+    "JP_Sales": 2.77,
+    "Other_Sales": 21.63,
+    "Global_Sales": 242.67,
+    "Percentage": 2.72
+  },
+  {
+    "Genre": "Action",
+    "Platform": "PS",
+    "NA_Sales": 62.88,
+    "EU_Sales": 45.13,
+    "JP_Sales": 11.46,
+    "Other_Sales": 7.55,
+    "Global_Sales": 127.05,
+    "Percentage": 1.42
+  },
+  {
+    "Genre": "Action",
+    "Platform": "Wii",
+    "NA_Sales": 70.28,
+    "EU_Sales": 33.04,
+    "JP_Sales": 4.92,
+    "Other_Sales": 10.27,
+    "Global_Sales": 118.58,
+    "Percentage": 1.33
+  },
+  {
+    "Genre": "Action",
+    "Platform": "DS",
+    "NA_Sales": 66.46,
+    "EU_Sales": 27.04,
+    "JP_Sales": 12.74,
+    "Other_Sales": 9.14,
+    "Global_Sales": 115.56,
+    "Percentage": 1.3
+  },
+  {
+    "Genre": "Action",
+    "Platform": "PS4",
+    "NA_Sales": 29.7,
+    "EU_Sales": 38.19,
+    "JP_Sales": 5.41,
+    "Other_Sales": 13.78,
+    "Global_Sales": 87.06,
+    "Percentage": 0.98
+  },
+  {
+    "Genre": "Action",
+    "Platform": "PSP",
+    "NA_Sales": 23.83,
+    "EU_Sales": 17.68,
+    "JP_Sales": 12.15,
+    "Other_Sales": 11.11,
+    "Global_Sales": 64.72,
+    "Percentage": 0.73
+  },
+  {
+    "Genre": "Action",
+    "Platform": "3DS",
+    "NA_Sales": 19.49,
+    "EU_Sales": 12.53,
+    "JP_Sales": 22.05,
+    "Other_Sales": 2.84,
+    "Global_Sales": 57.02,
+    "Percentage": 0.64
+  },
+  {
+    "Genre": "Action",
+    "Platform": "GBA",
+    "NA_Sales": 37.13,
+    "EU_Sales": 14.7,
+    "JP_Sales": 2.47,
+    "Other_Sales": 1.36,
+    "Global_Sales": 55.76,
+    "Percentage": 0.63
+  },
+  {
+    "Genre": "Action",
+    "Platform": "XB",
+    "NA_Sales": 34.34,
+    "EU_Sales": 12.81,
+    "JP_Sales": 0.33,
+    "Other_Sales": 1.79,
+    "Global_Sales": 49.28,
+    "Percentage": 0.55
+  },
+  {
+    "Genre": "Action",
+    "Platform": "GC",
+    "NA_Sales": 26.11,
+    "EU_Sales": 7.77,
+    "JP_Sales": 2.83,
+    "Other_Sales": 0.99,
+    "Global_Sales": 37.84,
+    "Percentage": 0.42
+  },
+  {
+    "Genre": "Action",
+    "Platform": "XOne",
+    "NA_Sales": 19.45,
+    "EU_Sales": 11.47,
+    "JP_Sales": 0.05,
+    "Other_Sales": 2.81,
+    "Global_Sales": 33.79,
+    "Percentage": 0.38
+  },
+  {
+    "Genre": "Action",
+    "Platform": "PC",
+    "NA_Sales": 9.87,
+    "EU_Sales": 17.95,
+    "JP_Sales": 0.0,
+    "Other_Sales": 3.57,
+    "Global_Sales": 31.53,
+    "Percentage": 0.35
+  },
+  {
+    "Genre": "Action",
+    "Platform": "N64",
+    "NA_Sales": 18.96,
+    "EU_Sales": 6.35,
+    "JP_Sales": 3.67,
+    "Other_Sales": 0.56,
+    "Global_Sales": 29.58,
+    "Percentage": 0.33
+  },
+  {
+    "Genre": "Action",
+    "Platform": "2600",
+    "NA_Sales": 27.39,
+    "EU_Sales": 1.64,
+    "JP_Sales": 0.0,
+    "Other_Sales": 0.22,
+    "Global_Sales": 29.34,
+    "Percentage": 0.33
+  },
+  {
+    "Genre": "Action",
+    "Platform": "NES",
+    "NA_Sales": 16.31,
+    "EU_Sales": 3.34,
+    "JP_Sales": 8.65,
+    "Other_Sales": 0.45,
+    "Global_Sales": 28.75,
+    "Percentage": 0.32
+  },
+  {
+    "Genre": "Action",
+    "Platform": "PSV",
+    "NA_Sales": 4.95,
+    "EU_Sales": 5.68,
+    "JP_Sales": 6.54,
+    "Other_Sales": 2.82,
+    "Global_Sales": 20.01,
+    "Percentage": 0.22
+  },
+  {
+    "Genre": "Action",
+    "Platform": "WiiU",
+    "NA_Sales": 9.88,
+    "EU_Sales": 6.59,
+    "JP_Sales": 1.07,
+    "Other_Sales": 1.77,
+    "Global_Sales": 19.35,
+    "Percentage": 0.22
+  },
+  {
+    "Genre": "Action",
+    "Platform": "SNES",
+    "NA_Sales": 4.09,
+    "EU_Sales": 1.33,
+    "JP_Sales": 4.46,
+    "Other_Sales": 0.2,
+    "Global_Sales": 10.08,
+    "Percentage": 0.11
+  },
+  {
+    "Genre": "Action",
+    "Platform": "GB",
+    "NA_Sales": 4.07,
+    "EU_Sales": 2.11,
+    "JP_Sales": 1.49,
+    "Other_Sales": 0.26,
+    "Global_Sales": 7.92,
+    "Percentage": 0.09
+  },
+  {
+    "Genre": "Action",
+    "Platform": "GEN",
+    "NA_Sales": 1.86,
+    "EU_Sales": 0.55,
+    "JP_Sales": 0.25,
+    "Other_Sales": 0.08,
+    "Global_Sales": 2.74,
+    "Percentage": 0.03
+  },
+  {
+    "Genre": "Action",
+    "Platform": "DC",
+    "NA_Sales": 0.41,
+    "EU_Sales": 0.23,
+    "JP_Sales": 0.59,
+    "Other_Sales": 0.03,
+    "Global_Sales": 1.26,
+    "Percentage": 0.01
+  },
+  {
+    "Genre": "Action",
+    "Platform": "SAT",
+    "NA_Sales": 0.0,
+    "EU_Sales": 0.0,
+    "JP_Sales": 0.65,
+    "Other_Sales": 0.0,
+    "Global_Sales": 0.65,
+    "Percentage": 0.01
+  },
+  {
+    "Genre": "Sports",
+    "Platform": "Wii",
+    "NA_Sales": 151.77,
+    "EU_Sales": 94.99,
+    "JP_Sales": 18.25,
+    "Other_Sales": 27.06,
+    "Global_Sales": 292.06,
+    "Percentage": 3.27
+  },
+  {
+    "Genre": "Sports",
+    "Platform": "PS2",
+    "NA_Sales": 134.12,
+    "EU_Sales": 69.96,
+    "JP_Sales": 24.74,
+    "Other_Sales": 44.66,
+    "Global_Sales": 273.41,
+    "Percentage": 3.06
+  },
+  {
+    "Genre": "Sports",
+    "Platform": "X360",
+    "NA_Sales": 89.63,
+    "EU_Sales": 37.5,
+    "JP_Sales": 0.41,
+    "Other_Sales": 11.46,
+    "Global_Sales": 139.12,
+    "Percentage": 1.56
+  },
+  {
+    "Genre": "Sports",
+    "Platform": "PS3",
+    "NA_Sales": 60.58,
+    "EU_Sales": 48.02,
+    "JP_Sales": 7.9,
+    "Other_Sales": 19.17,
+    "Global_Sales": 135.56,
+    "Percentage": 1.52
+  },
+  {
+    "Genre": "Sports",
+    "Platform": "PS",
+    "NA_Sales": 64.02,
+    "EU_Sales": 31.75,
+    "JP_Sales": 18.43,
+    "Other_Sales": 6.75,
+    "Global_Sales": 120.97,
+    "Percentage": 1.36
+  },
+  {
+    "Genre": "Sports",
+    "Platform": "XB",
+    "NA_Sales": 41.02,
+    "EU_Sales": 10.9,
+    "JP_Sales": 0.16,
+    "Other_Sales": 2.03,
+    "Global_Sales": 54.27,
+    "Percentage": 0.61
+  },
+  {
+    "Genre": "Sports",
+    "Platform": "PS4",
+    "NA_Sales": 18.23,
+    "EU_Sales": 22.88,
+    "JP_Sales": 0.92,
+    "Other_Sales": 8.07,
+    "Global_Sales": 50.07,
+    "Percentage": 0.56
+  },
+  {
+    "Genre": "Sports",
+    "Platform": "PSP",
+    "NA_Sales": 17.51,
+    "EU_Sales": 11.85,
+    "JP_Sales": 6.36,
+    "Other_Sales": 6.03,
+    "Global_Sales": 41.69,
+    "Percentage": 0.47
+  },
+  {
+    "Genre": "Sports",
+    "Platform": "N64",
+    "NA_Sales": 22.07,
+    "EU_Sales": 5.43,
+    "JP_Sales": 4.55,
+    "Other_Sales": 0.7,
+    "Global_Sales": 32.8,
+    "Percentage": 0.37
+  },
+  {
+    "Genre": "Sports",
+    "Platform": "DS",
+    "NA_Sales": 15.68,
+    "EU_Sales": 7.89,
+    "JP_Sales": 5.7,
+    "Other_Sales": 2.49,
+    "Global_Sales": 31.83,
+    "Percentage": 0.36
+  },
+  {
+    "Genre": "Sports",
+    "Platform": "NES",
+    "NA_Sales": 7.0,
+    "EU_Sales": 2.12,
+    "JP_Sales": 17.43,
+    "Other_Sales": 0.29,
+    "Global_Sales": 26.85,
+    "Percentage": 0.3
+  },
+  {
+    "Genre": "Sports",
+    "Platform": "GC",
+    "NA_Sales": 18.37,
+    "EU_Sales": 4.78,
+    "JP_Sales": 1.63,
+    "Other_Sales": 0.56,
+    "Global_Sales": 25.49,
+    "Percentage": 0.29
+  },
+  {
+    "Genre": "Sports",
+    "Platform": "XOne",
+    "NA_Sales": 14.26,
+    "EU_Sales": 7.67,
+    "JP_Sales": 0.02,
+    "Other_Sales": 2.03,
+    "Global_Sales": 23.97,
+    "Percentage": 0.27
+  },
+  {
+    "Genre": "Sports",
+    "Platform": "SNES",
+    "NA_Sales": 2.1,
+    "EU_Sales": 0.29,
+    "JP_Sales": 15.41,
+    "Other_Sales": 0.06,
+    "Global_Sales": 17.87,
+    "Percentage": 0.2
+  },
+  {
+    "Genre": "Sports",
+    "Platform": "GBA",
+    "NA_Sales": 10.3,
+    "EU_Sales": 3.79,
+    "JP_Sales": 1.99,
+    "Other_Sales": 0.24,
+    "Global_Sales": 16.41,
+    "Percentage": 0.18
+  },
+  {
+    "Genre": "Sports",
+    "Platform": "PC",
+    "NA_Sales": 0.34,
+    "EU_Sales": 10.05,
+    "JP_Sales": 0.0,
+    "Other_Sales": 1.58,
+    "Global_Sales": 12.01,
+    "Percentage": 0.13
+  },
+  {
+    "Genre": "Sports",
+    "Platform": "GB",
+    "NA_Sales": 3.64,
+    "EU_Sales": 1.46,
+    "JP_Sales": 3.74,
+    "Other_Sales": 0.22,
+    "Global_Sales": 9.05,
+    "Percentage": 0.1
+  },
+  {
+    "Genre": "Sports",
+    "Platform": "3DS",
+    "NA_Sales": 1.66,
+    "EU_Sales": 2.18,
+    "JP_Sales": 1.97,
+    "Other_Sales": 0.39,
+    "Global_Sales": 6.2,
+    "Percentage": 0.07
+  },
+  {
+    "Genre": "Sports",
+    "Platform": "PSV",
+    "NA_Sales": 1.38,
+    "EU_Sales": 1.72,
+    "JP_Sales": 1.03,
+    "Other_Sales": 0.77,
+    "Global_Sales": 4.88,
+    "Percentage": 0.05
+  },
+  {
+    "Genre": "Sports",
+    "Platform": "DC",
+    "NA_Sales": 2.14,
+    "EU_Sales": 0.1,
+    "JP_Sales": 1.37,
+    "Other_Sales": 0.04,
+    "Global_Sales": 3.66,
+    "Percentage": 0.04
+  },
+  {
+    "Genre": "Sports",
+    "Platform": "2600",
+    "NA_Sales": 3.22,
+    "EU_Sales": 0.19,
+    "JP_Sales": 0.0,
+    "Other_Sales": 0.04,
+    "Global_Sales": 3.43,
+    "Percentage": 0.04
+  },
+  {
+    "Genre": "Sports",
+    "Platform": "WiiU",
+    "NA_Sales": 1.61,
+    "EU_Sales": 0.94,
+    "JP_Sales": 0.51,
+    "Other_Sales": 0.25,
+    "Global_Sales": 3.32,
+    "Percentage": 0.04
+  },
+  {
+    "Genre": "Sports",
+    "Platform": "GEN",
+    "NA_Sales": 2.7,
+    "EU_Sales": 0.39,
+    "JP_Sales": 0.04,
+    "Other_Sales": 0.08,
+    "Global_Sales": 3.2,
+    "Percentage": 0.04
+  },
+  {
+    "Genre": "Sports",
+    "Platform": "SAT",
+    "NA_Sales": 0.0,
+    "EU_Sales": 0.0,
+    "JP_Sales": 2.79,
+    "Other_Sales": 0.0,
+    "Global_Sales": 2.79,
+    "Percentage": 0.03
+  },
+  {
+    "Genre": "Sports",
+    "Platform": "NG",
+    "NA_Sales": 0.0,
+    "EU_Sales": 0.0,
+    "JP_Sales": 0.02,
+    "Other_Sales": 0.0,
+    "Global_Sales": 0.02,
+    "Percentage": 0.0
+  },
+  {
+    "Genre": "Shooter",
+    "Platform": "X360",
+    "NA_Sales": 174.22,
+    "EU_Sales": 76.59,
+    "JP_Sales": 3.1,
+    "Other_Sales": 24.53,
+    "Global_Sales": 278.55,
+    "Percentage": 3.12
+  },
+  {
+    "Genre": "Shooter",
+    "Platform": "PS3",
+    "NA_Sales": 81.88,
+    "EU_Sales": 75.14,
+    "JP_Sales": 8.81,
+    "Other_Sales": 30.21,
+    "Global_Sales": 196.04,
+    "Percentage": 2.2
+  },
+  {
+    "Genre": "Shooter",
+    "Platform": "PS2",
+    "NA_Sales": 57.53,
+    "EU_Sales": 33.7,
+    "JP_Sales": 3.84,
+    "Other_Sales": 13.42,
+    "Global_Sales": 108.57,
+    "Percentage": 1.22
+  },
+  {
+    "Genre": "Shooter",
+    "Platform": "PS4",
+    "NA_Sales": 28.02,
+    "EU_Sales": 33.15,
+    "JP_Sales": 2.33,
+    "Other_Sales": 11.82,
+    "Global_Sales": 75.32,
+    "Percentage": 0.84
+  },
+  {
+    "Genre": "Shooter",
+    "Platform": "XB",
+    "NA_Sales": 46.16,
+    "EU_Sales": 15.25,
+    "JP_Sales": 0.24,
+    "Other_Sales": 1.89,
+    "Global_Sales": 63.55,
+    "Percentage": 0.71
+  },
+  {
+    "Genre": "Shooter",
+    "Platform": "XOne",
+    "NA_Sales": 31.78,
+    "EU_Sales": 15.27,
+    "JP_Sales": 0.16,
+    "Other_Sales": 4.38,
+    "Global_Sales": 51.61,
+    "Percentage": 0.58
+  },
+  {
+    "Genre": "Shooter",
+    "Platform": "PC",
+    "NA_Sales": 18.39,
+    "EU_Sales": 22.27,
+    "JP_Sales": 0.17,
+    "Other_Sales": 4.39,
+    "Global_Sales": 45.32,
+    "Percentage": 0.51
+  },
+  {
+    "Genre": "Shooter",
+    "Platform": "PS",
+    "NA_Sales": 21.16,
+    "EU_Sales": 13.57,
+    "JP_Sales": 2.38,
+    "Other_Sales": 2.22,
+    "Global_Sales": 39.31,
+    "Percentage": 0.44
+  },
+  {
+    "Genre": "Shooter",
+    "Platform": "NES",
+    "NA_Sales": 29.03,
+    "EU_Sales": 1.13,
+    "JP_Sales": 4.94,
+    "Other_Sales": 0.52,
+    "Global_Sales": 35.62,
+    "Percentage": 0.4
+  },
+  {
+    "Genre": "Shooter",
+    "Platform": "Wii",
+    "NA_Sales": 18.67,
+    "EU_Sales": 6.82,
+    "JP_Sales": 0.66,
+    "Other_Sales": 2.55,
+    "Global_Sales": 28.77,
+    "Percentage": 0.32
+  },
+  {
+    "Genre": "Shooter",
+    "Platform": "2600",
+    "NA_Sales": 24.68,
+    "EU_Sales": 1.51,
+    "JP_Sales": 0.0,
+    "Other_Sales": 0.28,
+    "Global_Sales": 26.48,
+    "Percentage": 0.3
+  },
+  {
+    "Genre": "Shooter",
+    "Platform": "PSP",
+    "NA_Sales": 10.26,
+    "EU_Sales": 5.39,
+    "JP_Sales": 0.45,
+    "Other_Sales": 3.7,
+    "Global_Sales": 19.77,
+    "Percentage": 0.22
+  },
+  {
+    "Genre": "Shooter",
+    "Platform": "N64",
+    "NA_Sales": 13.96,
+    "EU_Sales": 4.02,
+    "JP_Sales": 1.02,
+    "Other_Sales": 0.26,
+    "Global_Sales": 19.27,
+    "Percentage": 0.22
+  },
+  {
+    "Genre": "Shooter",
+    "Platform": "GC",
+    "NA_Sales": 10.01,
+    "EU_Sales": 2.9,
+    "JP_Sales": 0.37,
+    "Other_Sales": 0.33,
+    "Global_Sales": 13.63,
+    "Percentage": 0.15
+  },
+  {
+    "Genre": "Shooter",
+    "Platform": "DS",
+    "NA_Sales": 6.62,
+    "EU_Sales": 0.59,
+    "JP_Sales": 0.34,
+    "Other_Sales": 0.55,
+    "Global_Sales": 8.2,
+    "Percentage": 0.09
+  },
+  {
+    "Genre": "Shooter",
+    "Platform": "WiiU",
+    "NA_Sales": 2.38,
+    "EU_Sales": 1.71,
+    "JP_Sales": 1.52,
+    "Other_Sales": 0.55,
+    "Global_Sales": 6.17,
+    "Percentage": 0.07
+  },
+  {
+    "Genre": "Shooter",
+    "Platform": "SNES",
+    "NA_Sales": 2.67,
+    "EU_Sales": 0.89,
+    "JP_Sales": 2.38,
+    "Other_Sales": 0.12,
+    "Global_Sales": 6.07,
+    "Percentage": 0.07
+  },
+  {
+    "Genre": "Shooter",
+    "Platform": "PSV",
+    "NA_Sales": 1.77,
+    "EU_Sales": 1.76,
+    "JP_Sales": 0.24,
+    "Other_Sales": 0.82,
+    "Global_Sales": 4.57,
+    "Percentage": 0.05
+  },
+  {
+    "Genre": "Shooter",
+    "Platform": "SAT",
+    "NA_Sales": 0.0,
+    "EU_Sales": 0.0,
+    "JP_Sales": 3.97,
+    "Other_Sales": 0.0,
+    "Global_Sales": 3.98,
+    "Percentage": 0.04
+  },
+  {
+    "Genre": "Shooter",
+    "Platform": "GBA",
+    "NA_Sales": 2.35,
+    "EU_Sales": 0.87,
+    "JP_Sales": 0.32,
+    "Other_Sales": 0.02,
+    "Global_Sales": 3.6,
+    "Percentage": 0.04
+  },
+  {
+    "Genre": "Shooter",
+    "Platform": "3DS",
+    "NA_Sales": 0.66,
+    "EU_Sales": 0.35,
+    "JP_Sales": 0.2,
+    "Other_Sales": 0.09,
+    "Global_Sales": 1.29,
+    "Percentage": 0.01
+  },
+  {
+    "Genre": "Shooter",
+    "Platform": "GB",
+    "NA_Sales": 0.4,
+    "EU_Sales": 0.39,
+    "JP_Sales": 0.36,
+    "Other_Sales": 0.04,
+    "Global_Sales": 1.2,
+    "Percentage": 0.01
+  },
+  {
+    "Genre": "Shooter",
+    "Platform": "DC",
+    "NA_Sales": 0.0,
+    "EU_Sales": 0.0,
+    "JP_Sales": 0.33,
+    "Other_Sales": 0.0,
+    "Global_Sales": 0.33,
+    "Percentage": 0.0
+  },
+  {
+    "Genre": "Shooter",
+    "Platform": "GEN",
+    "NA_Sales": 0.0,
+    "EU_Sales": 0.0,
+    "JP_Sales": 0.13,
+    "Other_Sales": 0.0,
+    "Global_Sales": 0.13,
+    "Percentage": 0.0
+  },
+  {
+    "Genre": "Shooter",
+    "Platform": "TG16",
+    "NA_Sales": 0.0,
+    "EU_Sales": 0.0,
+    "JP_Sales": 0.02,
+    "Other_Sales": 0.0,
+    "Global_Sales": 0.02,
+    "Percentage": 0.0
+  },
+  {
+    "Genre": "Role-Playing",
+    "Platform": "DS",
+    "NA_Sales": 47.46,
+    "EU_Sales": 18.3,
+    "JP_Sales": 54.55,
+    "Other_Sales": 6.46,
+    "Global_Sales": 126.85,
+    "Percentage": 1.42
+  },
+  {
+    "Genre": "Role-Playing",
+    "Platform": "PS2",
+    "NA_Sales": 32.85,
+    "EU_Sales": 18.42,
+    "JP_Sales": 34.01,
+    "Other_Sales": 8.27,
+    "Global_Sales": 93.5,
+    "Percentage": 1.05
+  },
+  {
+    "Genre": "Role-Playing",
+    "Platform": "GB",
+    "NA_Sales": 28.71,
+    "EU_Sales": 21.67,
+    "JP_Sales": 34.55,
+    "Other_Sales": 3.31,
+    "Global_Sales": 88.24,
+    "Percentage": 0.99
+  },
+  {
+    "Genre": "Role-Playing",
+    "Platform": "PS",
+    "NA_Sales": 20.73,
+    "EU_Sales": 12.42,
+    "JP_Sales": 40.95,
+    "Other_Sales": 4.3,
+    "Global_Sales": 78.3,
+    "Percentage": 0.88
+  },
+  {
+    "Genre": "Role-Playing",
+    "Platform": "3DS",
+    "NA_Sales": 20.18,
+    "EU_Sales": 13.0,
+    "JP_Sales": 39.61,
+    "Other_Sales": 2.93,
+    "Global_Sales": 75.74,
+    "Percentage": 0.85
+  },
+  {
+    "Genre": "Role-Playing",
+    "Platform": "PS3",
+    "NA_Sales": 29.85,
+    "EU_Sales": 19.79,
+    "JP_Sales": 16.82,
+    "Other_Sales": 8.92,
+    "Global_Sales": 75.3,
+    "Percentage": 0.84
+  },
+  {
+    "Genre": "Role-Playing",
+    "Platform": "X360",
+    "NA_Sales": 44.65,
+    "EU_Sales": 18.56,
+    "JP_Sales": 2.61,
+    "Other_Sales": 6.15,
+    "Global_Sales": 71.98,
+    "Percentage": 0.81
+  },
+  {
+    "Genre": "Role-Playing",
+    "Platform": "GBA",
+    "NA_Sales": 28.29,
+    "EU_Sales": 12.87,
+    "JP_Sales": 21.21,
+    "Other_Sales": 1.83,
+    "Global_Sales": 64.21,
+    "Percentage": 0.72
+  },
+  {
+    "Genre": "Role-Playing",
+    "Platform": "PSP",
+    "NA_Sales": 11.42,
+    "EU_Sales": 3.76,
+    "JP_Sales": 30.82,
+    "Other_Sales": 2.99,
+    "Global_Sales": 49.05,
+    "Percentage": 0.55
+  },
+  {
+    "Genre": "Role-Playing",
+    "Platform": "PC",
+    "NA_Sales": 17.21,
+    "EU_Sales": 25.4,
+    "JP_Sales": 0.0,
+    "Other_Sales": 5.02,
+    "Global_Sales": 47.78,
+    "Percentage": 0.54
+  },
+  {
+    "Genre": "Role-Playing",
+    "Platform": "SNES",
+    "NA_Sales": 2.29,
+    "EU_Sales": 0.16,
+    "JP_Sales": 33.76,
+    "Other_Sales": 0.24,
+    "Global_Sales": 36.43,
+    "Percentage": 0.41
+  },
+  {
+    "Genre": "Role-Playing",
+    "Platform": "PS4",
+    "NA_Sales": 8.26,
+    "EU_Sales": 10.55,
+    "JP_Sales": 3.23,
+    "Other_Sales": 3.74,
+    "Global_Sales": 25.77,
+    "Percentage": 0.29
+  },
+  {
+    "Genre": "Role-Playing",
+    "Platform": "NES",
+    "NA_Sales": 1.14,
+    "EU_Sales": 0.0,
+    "JP_Sales": 16.11,
+    "Other_Sales": 1.53,
+    "Global_Sales": 18.78,
+    "Percentage": 0.21
+  },
+  {
+    "Genre": "Role-Playing",
+    "Platform": "Wii",
+    "NA_Sales": 5.74,
+    "EU_Sales": 1.95,
+    "JP_Sales": 5.63,
+    "Other_Sales": 0.76,
+    "Global_Sales": 14.06,
+    "Percentage": 0.16
+  },
+  {
+    "Genre": "Role-Playing",
+    "Platform": "XB",
+    "NA_Sales": 9.89,
+    "EU_Sales": 3.04,
+    "JP_Sales": 0.08,
+    "Other_Sales": 0.5,
+    "Global_Sales": 13.51,
+    "Percentage": 0.15
+  },
+  {
+    "Genre": "Role-Playing",
+    "Platform": "PSV",
+    "NA_Sales": 2.94,
+    "EU_Sales": 1.7,
+    "JP_Sales": 7.54,
+    "Other_Sales": 1.2,
+    "Global_Sales": 13.39,
+    "Percentage": 0.15
+  },
+  {
+    "Genre": "Role-Playing",
+    "Platform": "GC",
+    "NA_Sales": 7.91,
+    "EU_Sales": 2.44,
+    "JP_Sales": 2.47,
+    "Other_Sales": 0.34,
+    "Global_Sales": 13.15,
+    "Percentage": 0.15
+  },
+  {
+    "Genre": "Role-Playing",
+    "Platform": "XOne",
+    "NA_Sales": 5.56,
+    "EU_Sales": 3.06,
+    "JP_Sales": 0.01,
+    "Other_Sales": 0.83,
+    "Global_Sales": 9.48,
+    "Percentage": 0.11
+  },
+  {
+    "Genre": "Role-Playing",
+    "Platform": "SAT",
+    "NA_Sales": 0.0,
+    "EU_Sales": 0.0,
+    "JP_Sales": 3.76,
+    "Other_Sales": 0.0,
+    "Global_Sales": 3.76,
+    "Percentage": 0.04
+  },
+  {
+    "Genre": "Role-Playing",
+    "Platform": "N64",
+    "NA_Sales": 1.34,
+    "EU_Sales": 0.35,
+    "JP_Sales": 1.5,
+    "Other_Sales": 0.16,
+    "Global_Sales": 3.36,
+    "Percentage": 0.04
+  },
+  {
+    "Genre": "Role-Playing",
+    "Platform": "WiiU",
+    "NA_Sales": 0.86,
+    "EU_Sales": 0.62,
+    "JP_Sales": 0.83,
+    "Other_Sales": 0.13,
+    "Global_Sales": 2.47,
+    "Percentage": 0.03
+  },
+  {
+    "Genre": "Role-Playing",
+    "Platform": "WS",
+    "NA_Sales": 0.0,
+    "EU_Sales": 0.0,
+    "JP_Sales": 1.22,
+    "Other_Sales": 0.0,
+    "Global_Sales": 1.22,
+    "Percentage": 0.01
+  },
+  {
+    "Genre": "Role-Playing",
+    "Platform": "DC",
+    "NA_Sales": 0.0,
+    "EU_Sales": 0.0,
+    "JP_Sales": 0.68,
+    "Other_Sales": 0.0,
+    "Global_Sales": 0.68,
+    "Percentage": 0.01
+  },
+  {
+    "Genre": "Role-Playing",
+    "Platform": "GEN",
+    "NA_Sales": 0.0,
+    "EU_Sales": 0.0,
+    "JP_Sales": 0.27,
+    "Other_Sales": 0.0,
+    "Global_Sales": 0.27,
+    "Percentage": 0.0
+  },
+  {
+    "Genre": "Role-Playing",
+    "Platform": "SCD",
+    "NA_Sales": 0.0,
+    "EU_Sales": 0.0,
+    "JP_Sales": 0.06,
+    "Other_Sales": 0.0,
+    "Global_Sales": 0.06,
+    "Percentage": 0.0
+  },
+  {
+    "Genre": "Role-Playing",
+    "Platform": "PCFX",
+    "NA_Sales": 0.0,
+    "EU_Sales": 0.0,
+    "JP_Sales": 0.03,
+    "Other_Sales": 0.0,
+    "Global_Sales": 0.03,
+    "Percentage": 0.0
+  },
+  {
+    "Genre": "Platform",
+    "Platform": "NES",
+    "NA_Sales": 53.64,
+    "EU_Sales": 10.19,
+    "JP_Sales": 30.26,
+    "Other_Sales": 1.69,
+    "Global_Sales": 95.78,
+    "Percentage": 1.07
+  },
+  {
+    "Genre": "Platform",
+    "Platform": "Wii",
+    "NA_Sales": 48.3,
+    "EU_Sales": 24.08,
+    "JP_Sales": 11.24,
+    "Other_Sales": 7.13,
+    "Global_Sales": 90.74,
+    "Percentage": 1.02
+  },
+  {
+    "Genre": "Platform",
+    "Platform": "GBA",
+    "NA_Sales": 45.81,
+    "EU_Sales": 18.85,
+    "JP_Sales": 11.28,
+    "Other_Sales": 2.27,
+    "Global_Sales": 78.3,
+    "Percentage": 0.88
+  },
+  {
+    "Genre": "Platform",
+    "Platform": "DS",
+    "NA_Sales": 37.72,
+    "EU_Sales": 18.98,
+    "JP_Sales": 14.15,
+    "Other_Sales": 6.54,
+    "Global_Sales": 77.45,
+    "Percentage": 0.87
+  },
+  {
+    "Genre": "Platform",
+    "Platform": "PS2",
+    "NA_Sales": 37.6,
+    "EU_Sales": 23.32,
+    "JP_Sales": 2.47,
+    "Other_Sales": 9.15,
+    "Global_Sales": 72.51,
+    "Percentage": 0.81
+  },
+  {
+    "Genre": "Platform",
+    "Platform": "SNES",
+    "NA_Sales": 32.71,
+    "EU_Sales": 10.74,
+    "JP_Sales": 20.42,
+    "Other_Sales": 1.78,
+    "Global_Sales": 65.65,
+    "Percentage": 0.74
+  },
+  {
+    "Genre": "Platform",
+    "Platform": "PS",
+    "NA_Sales": 34.21,
+    "EU_Sales": 21.64,
+    "JP_Sales": 5.12,
+    "Other_Sales": 3.25,
+    "Global_Sales": 64.21,
+    "Percentage": 0.72
+  },
+  {
+    "Genre": "Platform",
+    "Platform": "GB",
+    "NA_Sales": 29.4,
+    "EU_Sales": 9.72,
+    "JP_Sales": 13.84,
+    "Other_Sales": 1.95,
+    "Global_Sales": 54.91,
+    "Percentage": 0.62
+  },
+  {
+    "Genre": "Platform",
+    "Platform": "N64",
+    "NA_Sales": 21.23,
+    "EU_Sales": 7.59,
+    "JP_Sales": 6.31,
+    "Other_Sales": 0.97,
+    "Global_Sales": 36.13,
+    "Percentage": 0.41
+  },
+  {
+    "Genre": "Platform",
+    "Platform": "3DS",
+    "NA_Sales": 13.19,
+    "EU_Sales": 10.35,
+    "JP_Sales": 6.45,
+    "Other_Sales": 2.26,
+    "Global_Sales": 32.23,
+    "Percentage": 0.36
+  },
+  {
+    "Genre": "Platform",
+    "Platform": "PS3",
+    "NA_Sales": 13.31,
+    "EU_Sales": 11.38,
+    "JP_Sales": 0.61,
+    "Other_Sales": 5.03,
+    "Global_Sales": 30.33,
+    "Percentage": 0.34
+  },
+  {
+    "Genre": "Platform",
+    "Platform": "GC",
+    "NA_Sales": 20.4,
+    "EU_Sales": 5.95,
+    "JP_Sales": 1.5,
+    "Other_Sales": 0.74,
+    "Global_Sales": 28.66,
+    "Percentage": 0.32
+  },
+  {
+    "Genre": "Platform",
+    "Platform": "WiiU",
+    "NA_Sales": 9.97,
+    "EU_Sales": 6.16,
+    "JP_Sales": 3.65,
+    "Other_Sales": 1.48,
+    "Global_Sales": 21.24,
+    "Percentage": 0.24
+  },
+  {
+    "Genre": "Platform",
+    "Platform": "PSP",
+    "NA_Sales": 7.98,
+    "EU_Sales": 5.36,
+    "JP_Sales": 0.65,
+    "Other_Sales": 3.27,
+    "Global_Sales": 17.28,
+    "Percentage": 0.19
+  },
+  {
+    "Genre": "Platform",
+    "Platform": "GEN",
+    "NA_Sales": 10.73,
+    "EU_Sales": 3.38,
+    "JP_Sales": 0.77,
+    "Other_Sales": 0.56,
+    "Global_Sales": 15.45,
+    "Percentage": 0.17
+  },
+  {
+    "Genre": "Platform",
+    "Platform": "2600",
+    "NA_Sales": 12.38,
+    "EU_Sales": 0.72,
+    "JP_Sales": 0.0,
+    "Other_Sales": 0.16,
+    "Global_Sales": 13.27,
+    "Percentage": 0.15
+  },
+  {
+    "Genre": "Platform",
+    "Platform": "X360",
+    "NA_Sales": 6.04,
+    "EU_Sales": 4.19,
+    "JP_Sales": 0.02,
+    "Other_Sales": 1.12,
+    "Global_Sales": 11.39,
+    "Percentage": 0.13
+  },
+  {
+    "Genre": "Platform",
+    "Platform": "XB",
+    "NA_Sales": 6.58,
+    "EU_Sales": 2.7,
+    "JP_Sales": 0.01,
+    "Other_Sales": 0.34,
+    "Global_Sales": 9.66,
+    "Percentage": 0.11
+  },
+  {
+    "Genre": "Platform",
+    "Platform": "PS4",
+    "NA_Sales": 2.18,
+    "EU_Sales": 3.32,
+    "JP_Sales": 0.49,
+    "Other_Sales": 1.0,
+    "Global_Sales": 7.01,
+    "Percentage": 0.08
+  },
+  {
+    "Genre": "Platform",
+    "Platform": "PSV",
+    "NA_Sales": 0.92,
+    "EU_Sales": 1.42,
+    "JP_Sales": 0.06,
+    "Other_Sales": 0.61,
+    "Global_Sales": 3.03,
+    "Percentage": 0.03
+  },
+  {
+    "Genre": "Platform",
+    "Platform": "DC",
+    "NA_Sales": 1.26,
+    "EU_Sales": 0.61,
+    "JP_Sales": 0.58,
+    "Other_Sales": 0.08,
+    "Global_Sales": 2.54,
+    "Percentage": 0.03
+  },
+  {
+    "Genre": "Platform",
+    "Platform": "SCD",
+    "NA_Sales": 1.0,
+    "EU_Sales": 0.36,
+    "JP_Sales": 0.09,
+    "Other_Sales": 0.05,
+    "Global_Sales": 1.5,
+    "Percentage": 0.02
+  },
+  {
+    "Genre": "Platform",
+    "Platform": "XOne",
+    "NA_Sales": 0.44,
+    "EU_Sales": 0.29,
+    "JP_Sales": 0.0,
+    "Other_Sales": 0.07,
+    "Global_Sales": 0.81,
+    "Percentage": 0.01
+  },
+  {
+    "Genre": "Platform",
+    "Platform": "SAT",
+    "NA_Sales": 0.0,
+    "EU_Sales": 0.0,
+    "JP_Sales": 0.76,
+    "Other_Sales": 0.0,
+    "Global_Sales": 0.76,
+    "Percentage": 0.01
+  },
+  {
+    "Genre": "Platform",
+    "Platform": "PC",
+    "NA_Sales": 0.05,
+    "EU_Sales": 0.33,
+    "JP_Sales": 0.0,
+    "Other_Sales": 0.09,
+    "Global_Sales": 0.49,
+    "Percentage": 0.01
+  },
+  {
+    "Genre": "Platform",
+    "Platform": "GG",
+    "NA_Sales": 0.0,
+    "EU_Sales": 0.0,
+    "JP_Sales": 0.04,
+    "Other_Sales": 0.0,
+    "Global_Sales": 0.04,
+    "Percentage": 0.0
+  },
+  {
+    "Genre": "Misc",
+    "Platform": "Wii",
+    "NA_Sales": 121.49,
+    "EU_Sales": 65.57,
+    "JP_Sales": 14.48,
+    "Other_Sales": 19.38,
+    "Global_Sales": 221.06,
+    "Percentage": 2.48
+  },
+  {
+    "Genre": "Misc",
+    "Platform": "DS",
+    "NA_Sales": 54.99,
+    "EU_Sales": 35.65,
+    "JP_Sales": 37.33,
+    "Other_Sales": 9.75,
+    "Global_Sales": 137.76,
+    "Percentage": 1.54
+  },
+  {
+    "Genre": "Misc",
+    "Platform": "PS2",
+    "NA_Sales": 40.73,
+    "EU_Sales": 29.91,
+    "JP_Sales": 8.03,
+    "Other_Sales": 22.42,
+    "Global_Sales": 101.14,
+    "Percentage": 1.13
+  },
+  {
+    "Genre": "Misc",
+    "Platform": "X360",
+    "NA_Sales": 63.43,
+    "EU_Sales": 20.54,
+    "JP_Sales": 0.45,
+    "Other_Sales": 7.55,
+    "Global_Sales": 91.96,
+    "Percentage": 1.03
+  },
+  {
+    "Genre": "Misc",
+    "Platform": "PS3",
+    "NA_Sales": 22.53,
+    "EU_Sales": 16.92,
+    "JP_Sales": 1.38,
+    "Other_Sales": 6.93,
+    "Global_Sales": 47.85,
+    "Percentage": 0.54
+  },
+  {
+    "Genre": "Misc",
+    "Platform": "PS",
+    "NA_Sales": 20.76,
+    "EU_Sales": 13.52,
+    "JP_Sales": 8.31,
+    "Other_Sales": 2.29,
+    "Global_Sales": 44.9,
+    "Percentage": 0.5
+  },
+  {
+    "Genre": "Misc",
+    "Platform": "GBA",
+    "NA_Sales": 24.64,
+    "EU_Sales": 9.23,
+    "JP_Sales": 1.69,
+    "Other_Sales": 0.53,
+    "Global_Sales": 36.25,
+    "Percentage": 0.41
+  },
+  {
+    "Genre": "Misc",
+    "Platform": "GC",
+    "NA_Sales": 10.07,
+    "EU_Sales": 2.62,
+    "JP_Sales": 3.58,
+    "Other_Sales": 0.45,
+    "Global_Sales": 16.73,
+    "Percentage": 0.19
+  },
+  {
+    "Genre": "Misc",
+    "Platform": "PSP",
+    "NA_Sales": 5.29,
+    "EU_Sales": 1.42,
+    "JP_Sales": 6.08,
+    "Other_Sales": 1.15,
+    "Global_Sales": 13.96,
+    "Percentage": 0.16
+  },
+  {
+    "Genre": "Misc",
+    "Platform": "GB",
+    "NA_Sales": 6.07,
+    "EU_Sales": 2.15,
+    "JP_Sales": 4.81,
+    "Other_Sales": 0.32,
+    "Global_Sales": 13.35,
+    "Percentage": 0.15
+  },
+  {
+    "Genre": "Misc",
+    "Platform": "WiiU",
+    "NA_Sales": 5.49,
+    "EU_Sales": 3.49,
+    "JP_Sales": 2.4,
+    "Other_Sales": 0.83,
+    "Global_Sales": 12.23,
+    "Percentage": 0.14
+  },
+  {
+    "Genre": "Misc",
+    "Platform": "N64",
+    "NA_Sales": 6.27,
+    "EU_Sales": 1.44,
+    "JP_Sales": 3.36,
+    "Other_Sales": 0.13,
+    "Global_Sales": 11.19,
+    "Percentage": 0.13
+  },
+  {
+    "Genre": "Misc",
+    "Platform": "3DS",
+    "NA_Sales": 2.56,
+    "EU_Sales": 2.13,
+    "JP_Sales": 5.38,
+    "Other_Sales": 0.4,
+    "Global_Sales": 10.48,
+    "Percentage": 0.12
+  },
+  {
+    "Genre": "Misc",
+    "Platform": "XB",
+    "NA_Sales": 7.19,
+    "EU_Sales": 1.99,
+    "JP_Sales": 0.0,
+    "Other_Sales": 0.31,
+    "Global_Sales": 9.58,
+    "Percentage": 0.11
+  },
+  {
+    "Genre": "Misc",
+    "Platform": "PC",
+    "NA_Sales": 5.66,
+    "EU_Sales": 2.53,
+    "JP_Sales": 0.0,
+    "Other_Sales": 0.35,
+    "Global_Sales": 8.56,
+    "Percentage": 0.1
+  },
+  {
+    "Genre": "Misc",
+    "Platform": "PS4",
+    "NA_Sales": 2.83,
+    "EU_Sales": 3.03,
+    "JP_Sales": 0.35,
+    "Other_Sales": 1.16,
+    "Global_Sales": 7.4,
+    "Percentage": 0.08
+  },
+  {
+    "Genre": "Misc",
+    "Platform": "XOne",
+    "NA_Sales": 4.44,
+    "EU_Sales": 1.82,
+    "JP_Sales": 0.01,
+    "Other_Sales": 0.61,
+    "Global_Sales": 6.86,
+    "Percentage": 0.08
+  },
+  {
+    "Genre": "Misc",
+    "Platform": "PSV",
+    "NA_Sales": 1.02,
+    "EU_Sales": 1.28,
+    "JP_Sales": 2.24,
+    "Other_Sales": 0.66,
+    "Global_Sales": 5.18,
+    "Percentage": 0.06
+  },
+  {
+    "Genre": "Misc",
+    "Platform": "SNES",
+    "NA_Sales": 1.43,
+    "EU_Sales": 0.54,
+    "JP_Sales": 2.98,
+    "Other_Sales": 0.07,
+    "Global_Sales": 5.02,
+    "Percentage": 0.06
+  },
+  {
+    "Genre": "Misc",
+    "Platform": "NES",
+    "NA_Sales": 0.01,
+    "EU_Sales": 0.0,
+    "JP_Sales": 3.58,
+    "Other_Sales": 0.0,
+    "Global_Sales": 3.59,
+    "Percentage": 0.04
+  },
+  {
+    "Genre": "Misc",
+    "Platform": "2600",
+    "NA_Sales": 3.34,
+    "EU_Sales": 0.2,
+    "JP_Sales": 0.0,
+    "Other_Sales": 0.03,
+    "Global_Sales": 3.58,
+    "Percentage": 0.04
+  },
+  {
+    "Genre": "Misc",
+    "Platform": "SAT",
+    "NA_Sales": 0.0,
+    "EU_Sales": 0.0,
+    "JP_Sales": 1.2,
+    "Other_Sales": 0.0,
+    "Global_Sales": 1.2,
+    "Percentage": 0.01
+  },
+  {
+    "Genre": "Misc",
+    "Platform": "SCD",
+    "NA_Sales": 0.0,
+    "EU_Sales": 0.0,
+    "JP_Sales": 0.09,
+    "Other_Sales": 0.0,
+    "Global_Sales": 0.1,
+    "Percentage": 0.0
+  },
+  {
+    "Genre": "Misc",
+    "Platform": "GEN",
+    "NA_Sales": 0.0,
+    "EU_Sales": 0.0,
+    "JP_Sales": 0.03,
+    "Other_Sales": 0.0,
+    "Global_Sales": 0.03,
+    "Percentage": 0.0
+  },
+  {
+    "Genre": "Racing",
+    "Platform": "PS2",
+    "NA_Sales": 75.72,
+    "EU_Sales": 47.38,
+    "JP_Sales": 5.92,
+    "Other_Sales": 27.37,
+    "Global_Sales": 156.28,
+    "Percentage": 1.75
+  },
+  {
+    "Genre": "Racing",
+    "Platform": "PS",
+    "NA_Sales": 51.43,
+    "EU_Sales": 35.08,
+    "JP_Sales": 10.89,
+    "Other_Sales": 5.81,
+    "Global_Sales": 103.19,
+    "Percentage": 1.16
+  },
+  {
+    "Genre": "Racing",
+    "Platform": "PS3",
+    "NA_Sales": 23.86,
+    "EU_Sales": 33.86,
+    "JP_Sales": 3.13,
+    "Other_Sales": 13.09,
+    "Global_Sales": 73.95,
+    "Percentage": 0.83
+  },
+  {
+    "Genre": "Racing",
+    "Platform": "X360",
+    "NA_Sales": 33.1,
+    "EU_Sales": 25.9,
+    "JP_Sales": 0.52,
+    "Other_Sales": 6.43,
+    "Global_Sales": 65.99,
+    "Percentage": 0.74
+  },
+  {
+    "Genre": "Racing",
+    "Platform": "Wii",
+    "NA_Sales": 31.52,
+    "EU_Sales": 19.98,
+    "JP_Sales": 4.11,
+    "Other_Sales": 5.53,
+    "Global_Sales": 61.28,
+    "Percentage": 0.69
+  },
+  {
+    "Genre": "Racing",
+    "Platform": "N64",
+    "NA_Sales": 26.68,
+    "EU_Sales": 8.29,
+    "JP_Sales": 4.46,
+    "Other_Sales": 0.58,
+    "Global_Sales": 40.09,
+    "Percentage": 0.45
+  },
+  {
+    "Genre": "Racing",
+    "Platform": "DS",
+    "NA_Sales": 20.82,
+    "EU_Sales": 10.07,
+    "JP_Sales": 4.57,
+    "Other_Sales": 3.13,
+    "Global_Sales": 38.64,
+    "Percentage": 0.43
+  },
+  {
+    "Genre": "Racing",
+    "Platform": "PSP",
+    "NA_Sales": 14.96,
+    "EU_Sales": 11.77,
+    "JP_Sales": 0.97,
+    "Other_Sales": 7.01,
+    "Global_Sales": 34.73,
+    "Percentage": 0.39
+  },
+  {
+    "Genre": "Racing",
+    "Platform": "XB",
+    "NA_Sales": 21.48,
+    "EU_Sales": 8.67,
+    "JP_Sales": 0.17,
+    "Other_Sales": 1.06,
+    "Global_Sales": 31.49,
+    "Percentage": 0.35
+  },
+  {
+    "Genre": "Racing",
+    "Platform": "GC",
+    "NA_Sales": 14.93,
+    "EU_Sales": 4.83,
+    "JP_Sales": 1.57,
+    "Other_Sales": 0.54,
+    "Global_Sales": 21.89,
+    "Percentage": 0.25
+  },
+  {
+    "Genre": "Racing",
+    "Platform": "GBA",
+    "NA_Sales": 11.73,
+    "EU_Sales": 5.04,
+    "JP_Sales": 1.5,
+    "Other_Sales": 0.54,
+    "Global_Sales": 18.8,
+    "Percentage": 0.21
+  },
+  {
+    "Genre": "Racing",
+    "Platform": "3DS",
+    "NA_Sales": 6.06,
+    "EU_Sales": 4.58,
+    "JP_Sales": 2.81,
+    "Other_Sales": 1.06,
+    "Global_Sales": 14.49,
+    "Percentage": 0.16
+  },
+  {
+    "Genre": "Racing",
+    "Platform": "SNES",
+    "NA_Sales": 4.91,
+    "EU_Sales": 1.75,
+    "JP_Sales": 6.58,
+    "Other_Sales": 0.25,
+    "Global_Sales": 13.49,
+    "Percentage": 0.15
+  },
+  {
+    "Genre": "Racing",
+    "Platform": "PS4",
+    "NA_Sales": 2.47,
+    "EU_Sales": 7.12,
+    "JP_Sales": 0.26,
+    "Other_Sales": 1.72,
+    "Global_Sales": 11.53,
+    "Percentage": 0.13
+  },
+  {
+    "Genre": "Racing",
+    "Platform": "NES",
+    "NA_Sales": 4.64,
+    "EU_Sales": 1.23,
+    "JP_Sales": 3.69,
+    "Other_Sales": 0.22,
+    "Global_Sales": 9.78,
+    "Percentage": 0.11
+  },
+  {
+    "Genre": "Racing",
+    "Platform": "XOne",
+    "NA_Sales": 3.94,
+    "EU_Sales": 4.16,
+    "JP_Sales": 0.05,
+    "Other_Sales": 0.68,
+    "Global_Sales": 8.8,
+    "Percentage": 0.1
+  },
+  {
+    "Genre": "Racing",
+    "Platform": "WiiU",
+    "NA_Sales": 3.47,
+    "EU_Sales": 2.46,
+    "JP_Sales": 1.29,
+    "Other_Sales": 0.56,
+    "Global_Sales": 7.77,
+    "Percentage": 0.09
+  },
+  {
+    "Genre": "Racing",
+    "Platform": "GB",
+    "NA_Sales": 2.31,
+    "EU_Sales": 1.06,
+    "JP_Sales": 0.74,
+    "Other_Sales": 0.44,
+    "Global_Sales": 4.55,
+    "Percentage": 0.05
+  },
+  {
+    "Genre": "Racing",
+    "Platform": "PC",
+    "NA_Sales": 0.44,
+    "EU_Sales": 3.01,
+    "JP_Sales": 0.0,
+    "Other_Sales": 0.58,
+    "Global_Sales": 4.06,
+    "Percentage": 0.05
+  },
+  {
+    "Genre": "Racing",
+    "Platform": "PSV",
+    "NA_Sales": 0.9,
+    "EU_Sales": 1.32,
+    "JP_Sales": 0.16,
+    "Other_Sales": 0.56,
+    "Global_Sales": 2.95,
+    "Percentage": 0.03
+  },
+  {
+    "Genre": "Racing",
+    "Platform": "2600",
+    "NA_Sales": 2.74,
+    "EU_Sales": 0.16,
+    "JP_Sales": 0.0,
+    "Other_Sales": 0.01,
+    "Global_Sales": 2.91,
+    "Percentage": 0.03
+  },
+  {
+    "Genre": "Racing",
+    "Platform": "DC",
+    "NA_Sales": 1.1,
+    "EU_Sales": 0.51,
+    "JP_Sales": 0.96,
+    "Other_Sales": 0.08,
+    "Global_Sales": 2.65,
+    "Percentage": 0.03
+  },
+  {
+    "Genre": "Racing",
+    "Platform": "SAT",
+    "NA_Sales": 0.21,
+    "EU_Sales": 0.16,
+    "JP_Sales": 2.01,
+    "Other_Sales": 0.02,
+    "Global_Sales": 2.4,
+    "Percentage": 0.03
+  },
+  {
+    "Genre": "Racing",
+    "Platform": "GEN",
+    "NA_Sales": 0.0,
+    "EU_Sales": 0.0,
+    "JP_Sales": 0.26,
+    "Other_Sales": 0.0,
+    "Global_Sales": 0.26,
+    "Percentage": 0.0
+  },
+  {
+    "Genre": "Racing",
+    "Platform": "SCD",
+    "NA_Sales": 0.0,
+    "EU_Sales": 0.0,
+    "JP_Sales": 0.07,
+    "Other_Sales": 0.0,
+    "Global_Sales": 0.07,
+    "Percentage": 0.0
+  },
+  {
+    "Genre": "Fighting",
+    "Platform": "PS2",
+    "NA_Sales": 44.98,
+    "EU_Sales": 23.51,
+    "JP_Sales": 11.65,
+    "Other_Sales": 12.47,
+    "Global_Sales": 92.6,
+    "Percentage": 1.04
+  },
+  {
+    "Genre": "Fighting",
+    "Platform": "PS",
+    "NA_Sales": 34.09,
+    "EU_Sales": 20.88,
+    "JP_Sales": 13.9,
+    "Other_Sales": 3.87,
+    "Global_Sales": 72.68,
+    "Percentage": 0.81
+  },
+  {
+    "Genre": "Fighting",
+    "Platform": "PS3",
+    "NA_Sales": 23.79,
+    "EU_Sales": 14.69,
+    "JP_Sales": 6.54,
+    "Other_Sales": 6.69,
+    "Global_Sales": 51.7,
+    "Percentage": 0.58
+  },
+  {
+    "Genre": "Fighting",
+    "Platform": "X360",
+    "NA_Sales": 24.58,
+    "EU_Sales": 8.92,
+    "JP_Sales": 0.96,
+    "Other_Sales": 3.17,
+    "Global_Sales": 37.64,
+    "Percentage": 0.42
+  },
+  {
+    "Genre": "Fighting",
+    "Platform": "SNES",
+    "NA_Sales": 9.34,
+    "EU_Sales": 2.9,
+    "JP_Sales": 14.27,
+    "Other_Sales": 0.43,
+    "Global_Sales": 26.95,
+    "Percentage": 0.3
+  },
+  {
+    "Genre": "Fighting",
+    "Platform": "Wii",
+    "NA_Sales": 13.15,
+    "EU_Sales": 5.11,
+    "JP_Sales": 3.67,
+    "Other_Sales": 1.91,
+    "Global_Sales": 23.86,
+    "Percentage": 0.27
+  },
+  {
+    "Genre": "Fighting",
+    "Platform": "N64",
+    "NA_Sales": 15.66,
+    "EU_Sales": 3.7,
+    "JP_Sales": 2.45,
+    "Other_Sales": 0.3,
+    "Global_Sales": 22.08,
+    "Percentage": 0.25
+  },
+  {
+    "Genre": "Fighting",
+    "Platform": "PSP",
+    "NA_Sales": 8.65,
+    "EU_Sales": 4.52,
+    "JP_Sales": 5.75,
+    "Other_Sales": 3.06,
+    "Global_Sales": 21.97,
+    "Percentage": 0.25
+  },
+  {
+    "Genre": "Fighting",
+    "Platform": "GC",
+    "NA_Sales": 11.29,
+    "EU_Sales": 2.91,
+    "JP_Sales": 3.69,
+    "Other_Sales": 0.54,
+    "Global_Sales": 18.43,
+    "Percentage": 0.21
+  },
+  {
+    "Genre": "Fighting",
+    "Platform": "XB",
+    "NA_Sales": 10.01,
+    "EU_Sales": 2.74,
+    "JP_Sales": 0.36,
+    "Other_Sales": 0.42,
+    "Global_Sales": 13.55,
+    "Percentage": 0.15
+  },
+  {
+    "Genre": "Fighting",
+    "Platform": "3DS",
+    "NA_Sales": 4.43,
+    "EU_Sales": 2.2,
+    "JP_Sales": 3.19,
+    "Other_Sales": 0.62,
+    "Global_Sales": 10.46,
+    "Percentage": 0.12
+  },
+  {
+    "Genre": "Fighting",
+    "Platform": "SAT",
+    "NA_Sales": 0.51,
+    "EU_Sales": 0.38,
+    "JP_Sales": 7.59,
+    "Other_Sales": 0.05,
+    "Global_Sales": 8.52,
+    "Percentage": 0.1
+  },
+  {
+    "Genre": "Fighting",
+    "Platform": "PS4",
+    "NA_Sales": 3.4,
+    "EU_Sales": 2.73,
+    "JP_Sales": 0.7,
+    "Other_Sales": 1.21,
+    "Global_Sales": 8.04,
+    "Percentage": 0.09
+  },
+  {
+    "Genre": "Fighting",
+    "Platform": "DS",
+    "NA_Sales": 2.58,
+    "EU_Sales": 0.32,
+    "JP_Sales": 4.09,
+    "Other_Sales": 0.21,
+    "Global_Sales": 7.2,
+    "Percentage": 0.08
+  },
+  {
+    "Genre": "Fighting",
+    "Platform": "NES",
+    "NA_Sales": 2.84,
+    "EU_Sales": 0.66,
+    "JP_Sales": 2.94,
+    "Other_Sales": 0.1,
+    "Global_Sales": 6.54,
+    "Percentage": 0.07
+  },
+  {
+    "Genre": "Fighting",
+    "Platform": "WiiU",
+    "NA_Sales": 3.25,
+    "EU_Sales": 1.43,
+    "JP_Sales": 0.99,
+    "Other_Sales": 0.67,
+    "Global_Sales": 6.36,
+    "Percentage": 0.07
+  },
+  {
+    "Genre": "Fighting",
+    "Platform": "GEN",
+    "NA_Sales": 3.98,
+    "EU_Sales": 1.2,
+    "JP_Sales": 0.54,
+    "Other_Sales": 0.17,
+    "Global_Sales": 5.9,
+    "Percentage": 0.07
+  },
+  {
+    "Genre": "Fighting",
+    "Platform": "GBA",
+    "NA_Sales": 2.9,
+    "EU_Sales": 1.07,
+    "JP_Sales": 0.14,
+    "Other_Sales": 0.05,
+    "Global_Sales": 4.21,
+    "Percentage": 0.05
+  },
+  {
+    "Genre": "Fighting",
+    "Platform": "PSV",
+    "NA_Sales": 1.33,
+    "EU_Sales": 0.7,
+    "JP_Sales": 0.67,
+    "Other_Sales": 0.48,
+    "Global_Sales": 3.15,
+    "Percentage": 0.04
+  },
+  {
+    "Genre": "Fighting",
+    "Platform": "XOne",
+    "NA_Sales": 1.58,
+    "EU_Sales": 0.52,
+    "JP_Sales": 0.01,
+    "Other_Sales": 0.23,
+    "Global_Sales": 2.31,
+    "Percentage": 0.03
+  },
+  {
+    "Genre": "Fighting",
+    "Platform": "DC",
+    "NA_Sales": 0.0,
+    "EU_Sales": 0.0,
+    "JP_Sales": 1.83,
+    "Other_Sales": 0.0,
+    "Global_Sales": 1.83,
+    "Percentage": 0.02
+  },
+  {
+    "Genre": "Fighting",
+    "Platform": "NG",
+    "NA_Sales": 0.0,
+    "EU_Sales": 0.0,
+    "JP_Sales": 1.42,
+    "Other_Sales": 0.0,
+    "Global_Sales": 1.42,
+    "Percentage": 0.02
+  },
+  {
+    "Genre": "Fighting",
+    "Platform": "2600",
+    "NA_Sales": 1.16,
+    "EU_Sales": 0.07,
+    "JP_Sales": 0.0,
+    "Other_Sales": 0.01,
+    "Global_Sales": 1.24,
+    "Percentage": 0.01
+  },
+  {
+    "Genre": "Fighting",
+    "Platform": "PC",
+    "NA_Sales": 0.09,
+    "EU_Sales": 0.16,
+    "JP_Sales": 0.0,
+    "Other_Sales": 0.02,
+    "Global_Sales": 0.27,
+    "Percentage": 0.0
+  },
+  {
+    "Genre": "Simulation",
+    "Platform": "DS",
+    "NA_Sales": 68.56,
+    "EU_Sales": 36.51,
+    "JP_Sales": 15.51,
+    "Other_Sales": 11.36,
+    "Global_Sales": 132.03,
+    "Percentage": 1.48
+  },
+  {
+    "Genre": "Simulation",
+    "Platform": "PC",
+    "NA_Sales": 19.94,
+    "EU_Sales": 27.37,
+    "JP_Sales": 0.0,
+    "Other_Sales": 4.5,
+    "Global_Sales": 51.91,
+    "Percentage": 0.58
+  },
+  {
+    "Genre": "Simulation",
+    "Platform": "PS2",
+    "NA_Sales": 19.37,
+    "EU_Sales": 12.25,
+    "JP_Sales": 6.57,
+    "Other_Sales": 4.46,
+    "Global_Sales": 42.66,
+    "Percentage": 0.48
+  },
+  {
+    "Genre": "Simulation",
+    "Platform": "Wii",
+    "NA_Sales": 23.9,
+    "EU_Sales": 7.83,
+    "JP_Sales": 1.98,
+    "Other_Sales": 3.11,
+    "Global_Sales": 36.97,
+    "Percentage": 0.41
+  },
+  {
+    "Genre": "Simulation",
+    "Platform": "3DS",
+    "NA_Sales": 7.47,
+    "EU_Sales": 7.93,
+    "JP_Sales": 10.32,
+    "Other_Sales": 1.4,
+    "Global_Sales": 27.08,
+    "Percentage": 0.3
+  },
+  {
+    "Genre": "Simulation",
+    "Platform": "PS",
+    "NA_Sales": 6.79,
+    "EU_Sales": 4.34,
+    "JP_Sales": 12.64,
+    "Other_Sales": 1.57,
+    "Global_Sales": 25.33,
+    "Percentage": 0.28
+  },
+  {
+    "Genre": "Simulation",
+    "Platform": "X360",
+    "NA_Sales": 8.5,
+    "EU_Sales": 4.03,
+    "JP_Sales": 0.7,
+    "Other_Sales": 1.23,
+    "Global_Sales": 14.45,
+    "Percentage": 0.16
+  },
+  {
+    "Genre": "Simulation",
+    "Platform": "PS3",
+    "NA_Sales": 4.3,
+    "EU_Sales": 3.78,
+    "JP_Sales": 1.27,
+    "Other_Sales": 1.41,
+    "Global_Sales": 10.79,
+    "Percentage": 0.12
+  },
+  {
+    "Genre": "Simulation",
+    "Platform": "N64",
+    "NA_Sales": 5.77,
+    "EU_Sales": 1.57,
+    "JP_Sales": 2.51,
+    "Other_Sales": 0.33,
+    "Global_Sales": 10.19,
+    "Percentage": 0.11
+  },
+  {
+    "Genre": "Simulation",
+    "Platform": "GC",
+    "NA_Sales": 5.37,
+    "EU_Sales": 1.74,
+    "JP_Sales": 1.21,
+    "Other_Sales": 0.29,
+    "Global_Sales": 8.59,
+    "Percentage": 0.1
+  },
+  {
+    "Genre": "Simulation",
+    "Platform": "XB",
+    "NA_Sales": 5.43,
+    "EU_Sales": 1.43,
+    "JP_Sales": 0.03,
+    "Other_Sales": 0.22,
+    "Global_Sales": 7.11,
+    "Percentage": 0.08
+  },
+  {
+    "Genre": "Simulation",
+    "Platform": "PSP",
+    "NA_Sales": 1.9,
+    "EU_Sales": 2.09,
+    "JP_Sales": 1.06,
+    "Other_Sales": 1.24,
+    "Global_Sales": 6.28,
+    "Percentage": 0.07
+  },
+  {
+    "Genre": "Simulation",
+    "Platform": "GBA",
+    "NA_Sales": 3.61,
+    "EU_Sales": 1.43,
+    "JP_Sales": 0.74,
+    "Other_Sales": 0.16,
+    "Global_Sales": 5.91,
+    "Percentage": 0.07
+  },
+  {
+    "Genre": "Simulation",
+    "Platform": "SNES",
+    "NA_Sales": 1.39,
+    "EU_Sales": 0.44,
+    "JP_Sales": 3.74,
+    "Other_Sales": 0.06,
+    "Global_Sales": 5.63,
+    "Percentage": 0.06
+  },
+  {
+    "Genre": "Simulation",
+    "Platform": "GB",
+    "NA_Sales": 0.0,
+    "EU_Sales": 0.0,
+    "JP_Sales": 3.53,
+    "Other_Sales": 0.02,
+    "Global_Sales": 3.55,
+    "Percentage": 0.04
+  },
+  {
+    "Genre": "Simulation",
+    "Platform": "SAT",
+    "NA_Sales": 0.0,
+    "EU_Sales": 0.0,
+    "JP_Sales": 1.13,
+    "Other_Sales": 0.0,
+    "Global_Sales": 1.13,
+    "Percentage": 0.01
+  },
+  {
+    "Genre": "Simulation",
+    "Platform": "PS4",
+    "NA_Sales": 0.15,
+    "EU_Sales": 0.37,
+    "JP_Sales": 0.16,
+    "Other_Sales": 0.09,
+    "Global_Sales": 0.77,
+    "Percentage": 0.01
+  },
+  {
+    "Genre": "Simulation",
+    "Platform": "XOne",
+    "NA_Sales": 0.28,
+    "EU_Sales": 0.21,
+    "JP_Sales": 0.0,
+    "Other_Sales": 0.05,
+    "Global_Sales": 0.54,
+    "Percentage": 0.01
+  },
+  {
+    "Genre": "Simulation",
+    "Platform": "DC",
+    "NA_Sales": 0.0,
+    "EU_Sales": 0.0,
+    "JP_Sales": 0.52,
+    "Other_Sales": 0.0,
+    "Global_Sales": 0.52,
+    "Percentage": 0.01
+  },
+  {
+    "Genre": "Simulation",
+    "Platform": "2600",
+    "NA_Sales": 0.42,
+    "EU_Sales": 0.02,
+    "JP_Sales": 0.0,
+    "Other_Sales": 0.0,
+    "Global_Sales": 0.45,
+    "Percentage": 0.01
+  },
+  {
+    "Genre": "Simulation",
+    "Platform": "WiiU",
+    "NA_Sales": 0.15,
+    "EU_Sales": 0.04,
+    "JP_Sales": 0.0,
+    "Other_Sales": 0.02,
+    "Global_Sales": 0.21,
+    "Percentage": 0.0
+  },
+  {
+    "Genre": "Simulation",
+    "Platform": "PSV",
+    "NA_Sales": 0.01,
+    "EU_Sales": 0.0,
+    "JP_Sales": 0.06,
+    "Other_Sales": 0.0,
+    "Global_Sales": 0.08,
+    "Percentage": 0.0
+  },
+  {
+    "Genre": "Simulation",
+    "Platform": "3DO",
+    "NA_Sales": 0.0,
+    "EU_Sales": 0.0,
+    "JP_Sales": 0.02,
+    "Other_Sales": 0.0,
+    "Global_Sales": 0.02,
+    "Percentage": 0.0
+  },
+  {
+    "Genre": "Puzzle",
+    "Platform": "DS",
+    "NA_Sales": 35.39,
+    "EU_Sales": 26.29,
+    "JP_Sales": 15.89,
+    "Other_Sales": 6.41,
+    "Global_Sales": 84.29,
+    "Percentage": 0.94
+  },
+  {
+    "Genre": "Puzzle",
+    "Platform": "GB",
+    "NA_Sales": 29.35,
+    "EU_Sales": 5.03,
+    "JP_Sales": 12.08,
+    "Other_Sales": 1.01,
+    "Global_Sales": 47.47,
+    "Percentage": 0.53
+  },
+  {
+    "Genre": "Puzzle",
+    "Platform": "NES",
+    "NA_Sales": 9.14,
+    "EU_Sales": 1.98,
+    "JP_Sales": 9.44,
+    "Other_Sales": 0.43,
+    "Global_Sales": 21.0,
+    "Percentage": 0.24
+  },
+  {
+    "Genre": "Puzzle",
+    "Platform": "Wii",
+    "NA_Sales": 9.28,
+    "EU_Sales": 3.63,
+    "JP_Sales": 1.5,
+    "Other_Sales": 1.21,
+    "Global_Sales": 15.67,
+    "Percentage": 0.18
+  },
+  {
+    "Genre": "Puzzle",
+    "Platform": "2600",
+    "NA_Sales": 13.68,
+    "EU_Sales": 0.86,
+    "JP_Sales": 0.0,
+    "Other_Sales": 0.15,
+    "Global_Sales": 14.68,
+    "Percentage": 0.16
+  },
+  {
+    "Genre": "Puzzle",
+    "Platform": "GBA",
+    "NA_Sales": 7.36,
+    "EU_Sales": 2.57,
+    "JP_Sales": 2.64,
+    "Other_Sales": 0.24,
+    "Global_Sales": 12.92,
+    "Percentage": 0.14
+  },
+  {
+    "Genre": "Puzzle",
+    "Platform": "PS",
+    "NA_Sales": 5.29,
+    "EU_Sales": 2.37,
+    "JP_Sales": 3.8,
+    "Other_Sales": 0.6,
+    "Global_Sales": 12.08,
+    "Percentage": 0.14
+  },
+  {
+    "Genre": "Puzzle",
+    "Platform": "SNES",
+    "NA_Sales": 0.0,
+    "EU_Sales": 0.0,
+    "JP_Sales": 6.37,
+    "Other_Sales": 0.01,
+    "Global_Sales": 6.38,
+    "Percentage": 0.07
+  },
+  {
+    "Genre": "Puzzle",
+    "Platform": "PS2",
+    "NA_Sales": 2.84,
+    "EU_Sales": 1.93,
+    "JP_Sales": 0.45,
+    "Other_Sales": 0.72,
+    "Global_Sales": 5.9,
+    "Percentage": 0.07
+  },
+  {
+    "Genre": "Puzzle",
+    "Platform": "3DS",
+    "NA_Sales": 1.29,
+    "EU_Sales": 2.12,
+    "JP_Sales": 1.8,
+    "Other_Sales": 0.35,
+    "Global_Sales": 5.57,
+    "Percentage": 0.06
+  },
+  {
+    "Genre": "Puzzle",
+    "Platform": "PSP",
+    "NA_Sales": 2.84,
+    "EU_Sales": 1.26,
+    "JP_Sales": 0.53,
+    "Other_Sales": 0.83,
+    "Global_Sales": 5.52,
+    "Percentage": 0.06
+  },
+  {
+    "Genre": "Puzzle",
+    "Platform": "GC",
+    "NA_Sales": 2.95,
+    "EU_Sales": 0.89,
+    "JP_Sales": 0.73,
+    "Other_Sales": 0.12,
+    "Global_Sales": 4.7,
+    "Percentage": 0.05
+  },
+  {
+    "Genre": "Puzzle",
+    "Platform": "N64",
+    "NA_Sales": 2.21,
+    "EU_Sales": 0.57,
+    "JP_Sales": 0.54,
+    "Other_Sales": 0.07,
+    "Global_Sales": 3.41,
+    "Percentage": 0.04
+  },
+  {
+    "Genre": "Puzzle",
+    "Platform": "WiiU",
+    "NA_Sales": 0.66,
+    "EU_Sales": 0.36,
+    "JP_Sales": 0.22,
+    "Other_Sales": 0.1,
+    "Global_Sales": 1.33,
+    "Percentage": 0.01
+  },
+  {
+    "Genre": "Puzzle",
+    "Platform": "SAT",
+    "NA_Sales": 0.0,
+    "EU_Sales": 0.0,
+    "JP_Sales": 1.0,
+    "Other_Sales": 0.0,
+    "Global_Sales": 1.0,
+    "Percentage": 0.01
+  },
+  {
+    "Genre": "Puzzle",
+    "Platform": "PC",
+    "NA_Sales": 0.09,
+    "EU_Sales": 0.68,
+    "JP_Sales": 0.0,
+    "Other_Sales": 0.16,
+    "Global_Sales": 0.92,
+    "Percentage": 0.01
+  },
+  {
+    "Genre": "Puzzle",
+    "Platform": "X360",
+    "NA_Sales": 0.62,
+    "EU_Sales": 0.04,
+    "JP_Sales": 0.15,
+    "Other_Sales": 0.06,
+    "Global_Sales": 0.85,
+    "Percentage": 0.01
+  },
+  {
+    "Genre": "Puzzle",
+    "Platform": "PS3",
+    "NA_Sales": 0.39,
+    "EU_Sales": 0.05,
+    "JP_Sales": 0.1,
+    "Other_Sales": 0.05,
+    "Global_Sales": 0.6,
+    "Percentage": 0.01
+  },
+  {
+    "Genre": "Puzzle",
+    "Platform": "XB",
+    "NA_Sales": 0.32,
+    "EU_Sales": 0.08,
+    "JP_Sales": 0.0,
+    "Other_Sales": 0.01,
+    "Global_Sales": 0.42,
+    "Percentage": 0.0
+  },
+  {
+    "Genre": "Puzzle",
+    "Platform": "PSV",
+    "NA_Sales": 0.08,
+    "EU_Sales": 0.05,
+    "JP_Sales": 0.05,
+    "Other_Sales": 0.02,
+    "Global_Sales": 0.2,
+    "Percentage": 0.0
+  },
+  {
+    "Genre": "Puzzle",
+    "Platform": "3DO",
+    "NA_Sales": 0.0,
+    "EU_Sales": 0.0,
+    "JP_Sales": 0.02,
+    "Other_Sales": 0.0,
+    "Global_Sales": 0.02,
+    "Percentage": 0.0
+  },
+  {
+    "Genre": "Puzzle",
+    "Platform": "PS4",
+    "NA_Sales": 0.0,
+    "EU_Sales": 0.02,
+    "JP_Sales": 0.0,
+    "Other_Sales": 0.0,
+    "Global_Sales": 0.02,
+    "Percentage": 0.0
+  },
+  {
+    "Genre": "Adventure",
+    "Platform": "DS",
+    "NA_Sales": 25.52,
+    "EU_Sales": 10.47,
+    "JP_Sales": 7.87,
+    "Other_Sales": 3.44,
+    "Global_Sales": 47.29,
+    "Percentage": 0.53
+  },
+  {
+    "Genre": "Adventure",
+    "Platform": "PS3",
+    "NA_Sales": 8.74,
+    "EU_Sales": 8.13,
+    "JP_Sales": 2.68,
+    "Other_Sales": 3.33,
+    "Global_Sales": 22.9,
+    "Percentage": 0.26
+  },
+  {
+    "Genre": "Adventure",
+    "Platform": "PS2",
+    "NA_Sales": 6.71,
+    "EU_Sales": 5.09,
+    "JP_Sales": 7.43,
+    "Other_Sales": 2.01,
+    "Global_Sales": 21.16,
+    "Percentage": 0.24
+  },
+  {
+    "Genre": "Adventure",
+    "Platform": "PS",
+    "NA_Sales": 8.51,
+    "EU_Sales": 7.72,
+    "JP_Sales": 3.45,
+    "Other_Sales": 1.25,
+    "Global_Sales": 20.97,
+    "Percentage": 0.24
+  },
+  {
+    "Genre": "Adventure",
+    "Platform": "Wii",
+    "NA_Sales": 11.17,
+    "EU_Sales": 4.59,
+    "JP_Sales": 1.17,
+    "Other_Sales": 1.43,
+    "Global_Sales": 18.43,
+    "Percentage": 0.21
+  },
+  {
+    "Genre": "Adventure",
+    "Platform": "GB",
+    "NA_Sales": 8.88,
+    "EU_Sales": 3.5,
+    "JP_Sales": 4.25,
+    "Other_Sales": 0.52,
+    "Global_Sales": 17.16,
+    "Percentage": 0.19
+  },
+  {
+    "Genre": "Adventure",
+    "Platform": "X360",
+    "NA_Sales": 8.4,
+    "EU_Sales": 4.86,
+    "JP_Sales": 0.61,
+    "Other_Sales": 1.32,
+    "Global_Sales": 15.23,
+    "Percentage": 0.17
+  },
+  {
+    "Genre": "Adventure",
+    "Platform": "GBA",
+    "NA_Sales": 9.21,
+    "EU_Sales": 3.52,
+    "JP_Sales": 1.57,
+    "Other_Sales": 0.33,
+    "Global_Sales": 14.68,
+    "Percentage": 0.16
+  },
+  {
+    "Genre": "Adventure",
+    "Platform": "PSP",
+    "NA_Sales": 1.68,
+    "EU_Sales": 0.92,
+    "JP_Sales": 7.5,
+    "Other_Sales": 0.58,
+    "Global_Sales": 10.69,
+    "Percentage": 0.12
+  },
+  {
+    "Genre": "Adventure",
+    "Platform": "PC",
+    "NA_Sales": 1.75,
+    "EU_Sales": 7.65,
+    "JP_Sales": 0.0,
+    "Other_Sales": 0.63,
+    "Global_Sales": 10.09,
+    "Percentage": 0.11
+  },
+  {
+    "Genre": "Adventure",
+    "Platform": "GC",
+    "NA_Sales": 3.82,
+    "EU_Sales": 1.26,
+    "JP_Sales": 0.67,
+    "Other_Sales": 0.18,
+    "Global_Sales": 5.93,
+    "Percentage": 0.07
+  },
+  {
+    "Genre": "Adventure",
+    "Platform": "3DS",
+    "NA_Sales": 1.1,
+    "EU_Sales": 0.8,
+    "JP_Sales": 2.74,
+    "Other_Sales": 0.18,
+    "Global_Sales": 4.81,
+    "Percentage": 0.05
+  },
+  {
+    "Genre": "Adventure",
+    "Platform": "PS4",
+    "NA_Sales": 1.42,
+    "EU_Sales": 2.19,
+    "JP_Sales": 0.38,
+    "Other_Sales": 0.71,
+    "Global_Sales": 4.7,
+    "Percentage": 0.05
+  },
+  {
+    "Genre": "Adventure",
+    "Platform": "NES",
+    "NA_Sales": 2.19,
+    "EU_Sales": 0.5,
+    "JP_Sales": 1.61,
+    "Other_Sales": 0.08,
+    "Global_Sales": 4.38,
+    "Percentage": 0.05
+  },
+  {
+    "Genre": "Adventure",
+    "Platform": "PSV",
+    "NA_Sales": 0.85,
+    "EU_Sales": 0.65,
+    "JP_Sales": 2.19,
+    "Other_Sales": 0.48,
+    "Global_Sales": 4.18,
+    "Percentage": 0.05
+  },
+  {
+    "Genre": "Adventure",
+    "Platform": "SAT",
+    "NA_Sales": 0.0,
+    "EU_Sales": 0.0,
+    "JP_Sales": 4.16,
+    "Other_Sales": 0.0,
+    "Global_Sales": 4.16,
+    "Percentage": 0.05
+  },
+  {
+    "Genre": "Adventure",
+    "Platform": "XB",
+    "NA_Sales": 2.22,
+    "EU_Sales": 0.73,
+    "JP_Sales": 0.0,
+    "Other_Sales": 0.07,
+    "Global_Sales": 3.06,
+    "Percentage": 0.03
+  },
+  {
+    "Genre": "Adventure",
+    "Platform": "XOne",
+    "NA_Sales": 1.2,
+    "EU_Sales": 1.08,
+    "JP_Sales": 0.03,
+    "Other_Sales": 0.2,
+    "Global_Sales": 2.51,
+    "Percentage": 0.03
+  },
+  {
+    "Genre": "Adventure",
+    "Platform": "DC",
+    "NA_Sales": 0.52,
+    "EU_Sales": 0.24,
+    "JP_Sales": 1.7,
+    "Other_Sales": 0.04,
+    "Global_Sales": 2.5,
+    "Percentage": 0.03
+  },
+  {
+    "Genre": "Adventure",
+    "Platform": "2600",
+    "NA_Sales": 1.59,
+    "EU_Sales": 0.1,
+    "JP_Sales": 0.0,
+    "Other_Sales": 0.01,
+    "Global_Sales": 1.7,
+    "Percentage": 0.02
+  },
+  {
+    "Genre": "Adventure",
+    "Platform": "SNES",
+    "NA_Sales": 0.0,
+    "EU_Sales": 0.0,
+    "JP_Sales": 1.5,
+    "Other_Sales": 0.0,
+    "Global_Sales": 1.5,
+    "Percentage": 0.02
+  },
+  {
+    "Genre": "Adventure",
+    "Platform": "N64",
+    "NA_Sales": 0.23,
+    "EU_Sales": 0.05,
+    "JP_Sales": 0.17,
+    "Other_Sales": 0.0,
+    "Global_Sales": 0.45,
+    "Percentage": 0.01
+  },
+  {
+    "Genre": "Adventure",
+    "Platform": "GEN",
+    "NA_Sales": 0.0,
+    "EU_Sales": 0.0,
+    "JP_Sales": 0.19,
+    "Other_Sales": 0.0,
+    "Global_Sales": 0.19,
+    "Percentage": 0.0
+  },
+  {
+    "Genre": "Adventure",
+    "Platform": "WiiU",
+    "NA_Sales": 0.09,
+    "EU_Sales": 0.08,
+    "JP_Sales": 0.0,
+    "Other_Sales": 0.02,
+    "Global_Sales": 0.17,
+    "Percentage": 0.0
+  },
+  {
+    "Genre": "Adventure",
+    "Platform": "TG16",
+    "NA_Sales": 0.0,
+    "EU_Sales": 0.0,
+    "JP_Sales": 0.14,
+    "Other_Sales": 0.0,
+    "Global_Sales": 0.14,
+    "Percentage": 0.0
+  },
+  {
+    "Genre": "Adventure",
+    "Platform": "3DO",
+    "NA_Sales": 0.0,
+    "EU_Sales": 0.0,
+    "JP_Sales": 0.06,
+    "Other_Sales": 0.0,
+    "Global_Sales": 0.06,
+    "Percentage": 0.0
+  },
+  {
+    "Genre": "Strategy",
+    "Platform": "PC",
+    "NA_Sales": 19.45,
+    "EU_Sales": 22.28,
+    "JP_Sales": 0.0,
+    "Other_Sales": 3.97,
+    "Global_Sales": 45.88,
+    "Percentage": 0.51
+  },
+  {
+    "Genre": "Strategy",
+    "Platform": "PS",
+    "NA_Sales": 6.64,
+    "EU_Sales": 5.18,
+    "JP_Sales": 8.49,
+    "Other_Sales": 1.45,
+    "Global_Sales": 21.67,
+    "Percentage": 0.24
+  },
+  {
+    "Genre": "Strategy",
+    "Platform": "DS",
+    "NA_Sales": 8.91,
+    "EU_Sales": 2.54,
+    "JP_Sales": 2.83,
+    "Other_Sales": 1.05,
+    "Global_Sales": 15.39,
+    "Percentage": 0.17
+  },
+  {
+    "Genre": "Strategy",
+    "Platform": "PS2",
+    "NA_Sales": 3.57,
+    "EU_Sales": 2.38,
+    "JP_Sales": 8.28,
+    "Other_Sales": 0.85,
+    "Global_Sales": 15.15,
+    "Percentage": 0.17
+  },
+  {
+    "Genre": "Strategy",
+    "Platform": "PSP",
+    "NA_Sales": 2.67,
+    "EU_Sales": 2.23,
+    "JP_Sales": 4.47,
+    "Other_Sales": 1.22,
+    "Global_Sales": 10.62,
+    "Percentage": 0.12
+  },
+  {
+    "Genre": "Strategy",
+    "Platform": "N64",
+    "NA_Sales": 4.64,
+    "EU_Sales": 1.7,
+    "JP_Sales": 3.68,
+    "Other_Sales": 0.32,
+    "Global_Sales": 10.33,
+    "Percentage": 0.12
+  },
+  {
+    "Genre": "Strategy",
+    "Platform": "X360",
+    "NA_Sales": 6.49,
+    "EU_Sales": 2.64,
+    "JP_Sales": 0.13,
+    "Other_Sales": 0.89,
+    "Global_Sales": 10.13,
+    "Percentage": 0.11
+  },
+  {
+    "Genre": "Strategy",
+    "Platform": "GB",
+    "NA_Sales": 1.49,
+    "EU_Sales": 0.73,
+    "JP_Sales": 5.73,
+    "Other_Sales": 0.11,
+    "Global_Sales": 8.05,
+    "Percentage": 0.09
+  },
+  {
+    "Genre": "Strategy",
+    "Platform": "GBA",
+    "NA_Sales": 4.21,
+    "EU_Sales": 1.31,
+    "JP_Sales": 1.78,
+    "Other_Sales": 0.16,
+    "Global_Sales": 7.45,
+    "Percentage": 0.08
+  },
+  {
+    "Genre": "Strategy",
+    "Platform": "Wii",
+    "NA_Sales": 2.44,
+    "EU_Sales": 0.79,
+    "JP_Sales": 1.74,
+    "Other_Sales": 0.27,
+    "Global_Sales": 5.23,
+    "Percentage": 0.06
+  },
+  {
+    "Genre": "Strategy",
+    "Platform": "SNES",
+    "NA_Sales": 0.3,
+    "EU_Sales": 0.0,
+    "JP_Sales": 4.68,
+    "Other_Sales": 0.0,
+    "Global_Sales": 4.98,
+    "Percentage": 0.06
+  },
+  {
+    "Genre": "Strategy",
+    "Platform": "PS3",
+    "NA_Sales": 1.87,
+    "EU_Sales": 1.33,
+    "JP_Sales": 1.16,
+    "Other_Sales": 0.59,
+    "Global_Sales": 4.94,
+    "Percentage": 0.06
+  },
+  {
+    "Genre": "Strategy",
+    "Platform": "GC",
+    "NA_Sales": 2.23,
+    "EU_Sales": 0.62,
+    "JP_Sales": 1.33,
+    "Other_Sales": 0.1,
+    "Global_Sales": 4.32,
+    "Percentage": 0.05
+  },
+  {
+    "Genre": "Strategy",
+    "Platform": "SAT",
+    "NA_Sales": 0.0,
+    "EU_Sales": 0.0,
+    "JP_Sales": 3.24,
+    "Other_Sales": 0.0,
+    "Global_Sales": 3.24,
+    "Percentage": 0.04
+  },
+  {
+    "Genre": "Strategy",
+    "Platform": "XB",
+    "NA_Sales": 2.05,
+    "EU_Sales": 0.61,
+    "JP_Sales": 0.0,
+    "Other_Sales": 0.08,
+    "Global_Sales": 2.78,
+    "Percentage": 0.03
+  },
+  {
+    "Genre": "Strategy",
+    "Platform": "3DS",
+    "NA_Sales": 0.78,
+    "EU_Sales": 0.35,
+    "JP_Sales": 0.83,
+    "Other_Sales": 0.11,
+    "Global_Sales": 2.09,
+    "Percentage": 0.02
+  },
+  {
+    "Genre": "Strategy",
+    "Platform": "WiiU",
+    "NA_Sales": 0.51,
+    "EU_Sales": 0.35,
+    "JP_Sales": 0.31,
+    "Other_Sales": 0.07,
+    "Global_Sales": 1.24,
+    "Percentage": 0.01
+  },
+  {
+    "Genre": "Strategy",
+    "Platform": "PS4",
+    "NA_Sales": 0.14,
+    "EU_Sales": 0.15,
+    "JP_Sales": 0.07,
+    "Other_Sales": 0.06,
+    "Global_Sales": 0.41,
+    "Percentage": 0.0
+  },
+  {
+    "Genre": "Strategy",
+    "Platform": "XOne",
+    "NA_Sales": 0.26,
+    "EU_Sales": 0.1,
+    "JP_Sales": 0.0,
+    "Other_Sales": 0.03,
+    "Global_Sales": 0.38,
+    "Percentage": 0.0
+  },
+  {
+    "Genre": "Strategy",
+    "Platform": "PSV",
+    "NA_Sales": 0.05,
+    "EU_Sales": 0.05,
+    "JP_Sales": 0.18,
+    "Other_Sales": 0.03,
+    "Global_Sales": 0.31,
+    "Percentage": 0.0
+  },
+  {
+    "Genre": "Strategy",
+    "Platform": "WS",
+    "NA_Sales": 0.0,
+    "EU_Sales": 0.0,
+    "JP_Sales": 0.2,
+    "Other_Sales": 0.0,
+    "Global_Sales": 0.2,
+    "Percentage": 0.0
+  },
+  {
+    "Genre": "Strategy",
+    "Platform": "GEN",
+    "NA_Sales": 0.0,
+    "EU_Sales": 0.0,
+    "JP_Sales": 0.19,
+    "Other_Sales": 0.0,
+    "Global_Sales": 0.19,
+    "Percentage": 0.0
+  },
+  {
+    "Genre": "Strategy",
+    "Platform": "SCD",
+    "NA_Sales": 0.0,
+    "EU_Sales": 0.0,
+    "JP_Sales": 0.14,
+    "Other_Sales": 0.0,
+    "Global_Sales": 0.14,
+    "Percentage": 0.0
+  }
+]

@@ -1,0 +1,131 @@
+<html>
+<head>
+    <title>Project 1</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        .bar {
+            fill: steelblue;
+          }
+      
+      
+        .axis-label {
+        font-size: 14px; 
+        font-weight: bold; 
+        font-family: Arial, sans-serif; 
+        }
+
+        .label {
+            font-size: 12px; 
+        }
+
+        .chart-title {
+        text-anchor: middle;
+        font-size: 18px;
+        font-weight: bold;
+        }
+    
+        .grid line {
+            stroke: #bbb;
+        }
+
+    </style>
+</head>
+<body>
+    <svg id="chart1"></svg>
+    <script>
+        d3.json('game_sales.json').then(raw_data => {
+            // Aggregate data by genre
+            const aggregatedData = d3.rollup(raw_data, 
+                v => d3.sum(v, d => d.Global_Sales),
+                d => d.Genre 
+            );
+
+            const data = Array.from(aggregatedData, ([Genre, Global_Sales]) => ({ Genre, Global_Sales }));
+
+
+            const margin = { top: 50, right: 30, bottom: 70, left: 100 };
+            const width = 600 - margin.left - margin.right;
+            const height = 400 - margin.top - margin.bottom;
+
+            const svg = d3.select("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform", `translate(${margin.left},${margin.top})`);
+
+            svg.append("text")
+            .attr("class", "chart-title")
+            .attr("x", width / 2)
+            .attr("y", -margin.top / 2)
+            .text("Global Game Sales by Genre");
+
+            const xScale = d3.scaleBand()
+            .domain(data.map(d => d.Genre)) 
+            .range([0, width])
+            .padding(0.2);
+
+            const yScale = d3.scaleLinear()
+            .domain([0, d3.max(data, d => d.Global_Sales * 1.1)])// Increase max 
+            .nice()
+            .range([height, 0]);
+
+            // Create gridlines
+            const makeYLines = () => d3.axisLeft()
+            .scale(yScale);
+
+            svg.append("g")
+                .attr("class", "grid")
+                .call(makeYLines()
+                .tickSize(-width, 0, 0)
+                .tickFormat(""));
+
+            // Append bars
+            svg.selectAll(".bar")
+            .data(data)
+            .enter()
+            .append("rect")
+            .attr("class", "bar")
+            .attr("x", d => xScale(d.Genre))
+            .attr("y", d => yScale(d.Global_Sales))
+            .attr("width", xScale.bandwidth())
+            .attr("height", d => height - yScale(d.Global_Sales));
+
+            // Add labels to each bar
+            svg.selectAll(".label")
+            .data(data)
+            .enter()
+            .append("text")
+            .attr("class", "label")
+            .attr("x", d => xScale(d.Genre) + xScale.bandwidth() / 2 - 11) // Centered above the bar
+            .attr("y", d => yScale(d.Global_Sales) - 5) 
+            .text(d => d.Global_Sales.toFixed(0)); 
+
+            // Add X-axis
+            svg.append("g")
+            .attr("transform", `translate(0, ${height})`)
+            .call(d3.axisBottom(xScale))
+            .selectAll("text")
+            .attr("transform", "rotate(-45)")
+            .style("text-anchor", "end")
+            .attr("class", "label");
+
+            // Add Y-axis
+            svg.append("g")
+            .call(d3.axisLeft(yScale));
+
+            svg.append("text")
+            .attr("text-anchor", "middle")
+            .attr("transform", `translate(${-margin.left / 2}, ${height / 2})rotate(-90)`)
+            .attr("class", "axis-label")
+            .text("Global Sales (Millions)");
+
+            svg.append("text")
+            .attr("text-anchor", "middle")
+            .attr("transform", `translate(${width / 2}, ${height + margin.bottom})`)
+            .attr("class", "axis-label")
+            .text("Game Genres");
+
+        });
+    </script>
+</body>
+</html>
