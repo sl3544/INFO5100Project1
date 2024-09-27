@@ -5,73 +5,90 @@
     <style>
         .bar {
             fill: steelblue;
-          }
-      
-      
+        }
+
         .axis-label {
-        font-size: 14px; 
-        font-weight: bold; 
-        font-family: Arial, sans-serif; 
+            font-size: 14px;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
         }
 
         .label {
-            font-size: 12px; 
+            font-size: 12px;
         }
 
         .chart-title {
-        text-anchor: middle;
-        font-size: 18px;
-        font-weight: bold;
+            text-anchor: middle;
+            font-size: 18px;
+            font-weight: bold;
         }
-    
+
         .grid line {
             stroke: #bbb;
         }
 
+        .legend {
+            font-size: 12px;
+            font-family: Arial, sans-serif;
+        }
+
+        .legend rect {
+            width: 15px;
+            height: 15px;
+        }
     </style>
 </head>
 <body>
     <svg id="chart1"></svg>
+    <svg id="chart2" width="900" height="300"></svg>
+
     <script>
         d3.json('game_sales.json').then(raw_data => {
-            // Aggregate data by genre
             const aggregatedData = d3.rollup(raw_data, 
-                v => d3.sum(v, d => d.Global_Sales),
+                v => ({
+                    Global_Sales: d3.sum(v, d => d.Global_Sales),
+                    Platforms: d3.rollup(v, p => d3.sum(p, d => d.Global_Sales), d => d.Platform)
+                }),
                 d => d.Genre 
             );
 
-            const data = Array.from(aggregatedData, ([Genre, Global_Sales]) => ({ Genre, Global_Sales }));
+            let data = Array.from(aggregatedData, ([Genre, values]) => ({
+                Genre,
+                Global_Sales: values.Global_Sales,
+                Platforms: Array.from(values.Platforms, ([Platform, Sales]) => ({ Platform, Sales }))
+            }));
 
+            const numOfGenres = 3
+            const topGenres = data.sort((a, b) => b.Global_Sales - a.Global_Sales).slice(0, numOfGenres);
 
             const margin = { top: 50, right: 30, bottom: 70, left: 100 };
-            const width = 600 - margin.left - margin.right;
+            const width = 900 - margin.left - margin.right;
             const height = 400 - margin.top - margin.bottom;
 
-            const svg = d3.select("svg")
-            .attr("width", width + margin.left + margin.right)
-            .attr("height", height + margin.top + margin.bottom)
-            .append("g")
-            .attr("transform", `translate(${margin.left},${margin.top})`);
+            const svg = d3.select("svg#chart1")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+                .append("g")
+                .attr("transform", `translate(${margin.left},${margin.top})`);
 
             svg.append("text")
-            .attr("class", "chart-title")
-            .attr("x", width / 2)
-            .attr("y", -margin.top / 2)
-            .text("Global Game Sales by Genre");
+                .attr("class", "chart-title")
+                .attr("x", width / 2)
+                .attr("y", -margin.top / 2)
+                .text("Global Game Sales by Genre");
 
             const xScale = d3.scaleBand()
-            .domain(data.map(d => d.Genre)) 
-            .range([0, width])
-            .padding(0.2);
+                .domain(data.map(d => d.Genre)) 
+                .range([0, width])
+                .padding(0.2);
 
             const yScale = d3.scaleLinear()
-            .domain([0, d3.max(data, d => d.Global_Sales * 1.1)])// Increase max 
-            .nice()
-            .range([height, 0]);
+                .domain([0, d3.max(data, d => d.Global_Sales * 1.1)]) // Increase max slightly for padding
+                .nice()
+                .range([height, 0]);
 
-            // Create gridlines
             const makeYLines = () => d3.axisLeft()
-            .scale(yScale);
+                .scale(yScale);
 
             svg.append("g")
                 .attr("class", "grid")
@@ -79,52 +96,125 @@
                 .tickSize(-width, 0, 0)
                 .tickFormat(""));
 
-            // Append bars
             svg.selectAll(".bar")
-            .data(data)
-            .enter()
-            .append("rect")
-            .attr("class", "bar")
-            .attr("x", d => xScale(d.Genre))
-            .attr("y", d => yScale(d.Global_Sales))
-            .attr("width", xScale.bandwidth())
-            .attr("height", d => height - yScale(d.Global_Sales));
+                .data(data)
+                .enter()
+                .append("rect")
+                .attr("class", "bar")
+                .attr("x", d => xScale(d.Genre))
+                .attr("y", d => yScale(d.Global_Sales))
+                .attr("width", xScale.bandwidth())
+                .attr("height", d => height - yScale(d.Global_Sales));
 
-            // Add labels to each bar
             svg.selectAll(".label")
-            .data(data)
-            .enter()
-            .append("text")
-            .attr("class", "label")
-            .attr("x", d => xScale(d.Genre) + xScale.bandwidth() / 2 - 11) // Centered above the bar
-            .attr("y", d => yScale(d.Global_Sales) - 5) 
-            .text(d => d.Global_Sales.toFixed(0)); 
+                .data(data)
+                .enter()
+                .append("text")
+                .attr("class", "label")
+                .attr("x", d => xScale(d.Genre) + xScale.bandwidth() / 2 - 11) // Centered above the bar
+                .attr("y", d => yScale(d.Global_Sales) - 5) 
+                .text(d => d.Global_Sales.toFixed(0)); 
 
-            // Add X-axis
             svg.append("g")
-            .attr("transform", `translate(0, ${height})`)
-            .call(d3.axisBottom(xScale))
-            .selectAll("text")
-            .attr("transform", "rotate(-45)")
-            .style("text-anchor", "end")
-            .attr("class", "label");
+                .attr("transform", `translate(0, ${height})`)
+                .call(d3.axisBottom(xScale))
+                .selectAll("text")
+                .attr("transform", "rotate(-45)")
+                .style("text-anchor", "end")
+                .attr("class", "label");
 
-            // Add Y-axis
             svg.append("g")
-            .call(d3.axisLeft(yScale));
+                .call(d3.axisLeft(yScale));
 
             svg.append("text")
-            .attr("text-anchor", "middle")
-            .attr("transform", `translate(${-margin.left / 2}, ${height / 2})rotate(-90)`)
-            .attr("class", "axis-label")
-            .text("Global Sales (Millions)");
+                .attr("text-anchor", "middle")
+                .attr("transform", `translate(${-margin.left / 2}, ${height / 2})rotate(-90)`)
+                .attr("class", "axis-label")
+                .text("Global Sales (Millions)");
 
             svg.append("text")
-            .attr("text-anchor", "middle")
-            .attr("transform", `translate(${width / 2}, ${height + margin.bottom})`)
-            .attr("class", "axis-label")
-            .text("Game Genres");
+                .attr("text-anchor", "middle")
+                .attr("transform", `translate(${width / 2}, ${height + margin.bottom})`)
+                .attr("class", "axis-label")
+                .text("Game Genres");
 
+            // Pie chart settings
+            const pieWidth = 300;
+            const pieHeight = 220;
+            const radius = Math.min(pieWidth, pieHeight) / 2;
+            const pieColor = d3.scaleOrdinal(d3.schemeCategory10);
+
+            const pie = d3.pie()
+                .value(d => d.Sales);
+
+            const arc = d3.arc()
+                .innerRadius(0)
+                .outerRadius(radius);
+
+            const pieSvg = d3.select("svg#chart2")
+                .attr("width", pieWidth * topGenres.length + 200)
+                .attr("height", pieHeight + 300)
+                .append("g")
+                .attr("transform", `translate(0, ${radius + 30})`);
+
+            topGenres.forEach((genreData, index) => {
+                const pieGroup = pieSvg.append("g")
+                    .attr("transform", `translate(${(index + 0.5) * pieWidth}, 0)`); 
+
+                // Aggregate the platform data to include "Others"
+                const numOfPlatforms = 5
+                const platforms = genreData.Platforms;
+                const sortedPlatforms = platforms.sort((a, b) => b.Sales - a.Sales);
+                const topPlatforms = sortedPlatforms.slice(0, numOfPlatforms);
+                const othersSales = sortedPlatforms.slice(numOfPlatforms).reduce((acc, p) => acc + p.Sales, 0);
+
+                const pieData = [...topPlatforms, { Platform: "Others", Sales: othersSales }];
+
+                const pieChartData = pie(pieData);
+
+                pieGroup.selectAll('path')
+                    .data(pieChartData)
+                    .enter()
+                    .append('path')
+                    .attr('d', arc)
+                    .attr('fill', d => pieColor(d.data.Platform));
+
+                pieGroup.append("text")
+                    .attr("y", radius + 20)
+                    .attr("text-anchor", "middle")
+                    .attr("class", "axis-label")
+                    .text(`${genreData.Genre} - Platform Distribution`);
+
+                const legend = pieGroup.append("g")
+                    .attr("transform", `translate(0, ${radius + 40})`); // Position legend below the pie chart
+
+                const legendData = pieData.map(d => d.Platform)
+
+                legend.selectAll(".legend")
+                    .data(legendData)
+                    .enter()
+                    .append("g")
+                    .attr("class", "legend")
+                    .attr("transform", (d, i) => `translate(0, ${i * 20})`);
+
+                legend.selectAll(".legend rect")
+                    .data(legendData)
+                    .enter()
+                    .append("rect")
+                    .attr("x", 0)
+                    .attr("y", (d, i) => i * 20)
+                    .attr("width", 15)
+                    .attr("height", 15)
+                    .attr("fill", d => pieColor(d));
+
+                legend.selectAll(".legend text")
+                    .data(legendData)
+                    .enter()
+                    .append("text")
+                    .attr("x", 20)
+                    .attr("y", (d, i) => i * 20 + 12)
+                    .text(d => d);
+            });
         });
     </script>
 </body>
