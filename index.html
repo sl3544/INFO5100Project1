@@ -36,11 +36,17 @@
             width: 15px;
             height: 15px;
         }
+
+        .connector-line {
+            stroke: gray;
+            stroke-width: 1;
+            stroke-dasharray: 5, 5;
+        }
     </style>
 </head>
 <body>
     <svg id="chart1"></svg>
-    <svg id="chart2" width="900" height="300"></svg>
+    <svg id="chart2"></svg>
 
     <script>
         d3.json('game_sales.json').then(raw_data => {
@@ -58,12 +64,12 @@
                 Platforms: Array.from(values.Platforms, ([Platform, Sales]) => ({ Platform, Sales }))
             }));
 
-            const numOfGenres = 3
+            const numOfGenres = 3;
             const topGenres = data.sort((a, b) => b.Global_Sales - a.Global_Sales).slice(0, numOfGenres);
 
-            const margin = { top: 50, right: 30, bottom: 70, left: 100 };
+            const margin = { top: 50, right: 30, bottom: 200, left: 100 };
             const width = 900 - margin.left - margin.right;
-            const height = 400 - margin.top - margin.bottom;
+            const height = 600 - margin.top - margin.bottom;
 
             const svg = d3.select("svg#chart1")
                 .attr("width", width + margin.left + margin.right)
@@ -83,7 +89,7 @@
                 .padding(0.2);
 
             const yScale = d3.scaleLinear()
-                .domain([0, d3.max(data, d => d.Global_Sales * 1.1)]) // Increase max slightly for padding
+                .domain([0, d3.max(data, d => d.Global_Sales * 1.1)])
                 .nice()
                 .range([height, 0]);
 
@@ -96,6 +102,8 @@
                 .tickSize(-width, 0, 0)
                 .tickFormat(""));
 
+            const barCenters = [];
+
             svg.selectAll(".bar")
                 .data(data)
                 .enter()
@@ -104,16 +112,23 @@
                 .attr("x", d => xScale(d.Genre))
                 .attr("y", d => yScale(d.Global_Sales))
                 .attr("width", xScale.bandwidth())
-                .attr("height", d => height - yScale(d.Global_Sales));
+                .attr("height", d => height - yScale(d.Global_Sales))
+                .each(function(d) {
+                    barCenters.push({
+                        genre: d.Genre,
+                        x: xScale(d.Genre) + xScale.bandwidth() / 2,
+                        y: yScale(d.Global_Sales)
+                    });
+                });
 
             svg.selectAll(".label")
                 .data(data)
                 .enter()
                 .append("text")
                 .attr("class", "label")
-                .attr("x", d => xScale(d.Genre) + xScale.bandwidth() / 2 - 11) // Centered above the bar
-                .attr("y", d => yScale(d.Global_Sales) - 5) 
-                .text(d => d.Global_Sales.toFixed(0)); 
+                .attr("x", d => xScale(d.Genre) + xScale.bandwidth() / 2 - 11)
+                .attr("y", d => yScale(d.Global_Sales) - 5)
+                .text(d => d.Global_Sales.toFixed(0));
 
             svg.append("g")
                 .attr("transform", `translate(0, ${height})`)
@@ -134,13 +149,13 @@
 
             svg.append("text")
                 .attr("text-anchor", "middle")
-                .attr("transform", `translate(${width / 2}, ${height + margin.bottom})`)
+                .attr("transform", `translate(${width / 2}, ${height + 70})`)
                 .attr("class", "axis-label")
                 .text("Game Genres");
 
-            // Pie chart settings
-            const pieWidth = 300;
-            const pieHeight = 220;
+            const pieMargin = { top: 10, right: 50, bottom: 300, left: 50 };
+            const pieWidth = 800;
+            const pieHeight = 200;
             const radius = Math.min(pieWidth, pieHeight) / 2;
             const pieColor = d3.scaleOrdinal(d3.schemeCategory10);
 
@@ -152,24 +167,31 @@
                 .outerRadius(radius);
 
             const pieSvg = d3.select("svg#chart2")
-                .attr("width", pieWidth * topGenres.length + 200)
-                .attr("height", pieHeight + 300)
+                .attr("width", pieWidth + pieMargin.left + pieMargin.right)
+                .attr("height", pieHeight + pieMargin.top + pieMargin.bottom)
                 .append("g")
-                .attr("transform", `translate(0, ${radius + 30})`);
+                .attr("transform", `translate(${pieMargin.left},${pieMargin.top})`);
+
+            const pieCenters = [];
 
             topGenres.forEach((genreData, index) => {
                 const pieGroup = pieSvg.append("g")
-                    .attr("transform", `translate(${(index + 0.5) * pieWidth}, 0)`); 
+                    .attr("transform", `translate(${(index + 0.6) * pieWidth / topGenres.length}, ${radius})`);
 
-                // Aggregate the platform data to include "Others"
-                const numOfPlatforms = 5
+                const pieCenter = {
+                    genre: genreData.Genre,
+                    x: (index + 0.5) * pieWidth / topGenres.length,
+                    y: radius
+                };
+                pieCenters.push(pieCenter);
+
+                const numOfPlatforms = 5;
                 const platforms = genreData.Platforms;
                 const sortedPlatforms = platforms.sort((a, b) => b.Sales - a.Sales);
                 const topPlatforms = sortedPlatforms.slice(0, numOfPlatforms);
                 const othersSales = sortedPlatforms.slice(numOfPlatforms).reduce((acc, p) => acc + p.Sales, 0);
 
                 const pieData = [...topPlatforms, { Platform: "Others", Sales: othersSales }];
-
                 const pieChartData = pie(pieData);
 
                 pieGroup.selectAll('path')
@@ -186,9 +208,9 @@
                     .text(`${genreData.Genre} - Platform Distribution`);
 
                 const legend = pieGroup.append("g")
-                    .attr("transform", `translate(0, ${radius + 40})`); // Position legend below the pie chart
+                    .attr("transform", `translate(0, ${radius + 40})`);
 
-                const legendData = pieData.map(d => d.Platform)
+                const legendData = pieData.map(d => d.Platform);
 
                 legend.selectAll(".legend")
                     .data(legendData)
@@ -214,6 +236,18 @@
                     .attr("x", 20)
                     .attr("y", (d, i) => i * 20 + 12)
                     .text(d => d);
+            });
+
+            barCenters.forEach(barCenter => {
+                const pieCenter = pieCenters.find(p => p.genre === barCenter.genre);
+                if (pieCenter) {
+                    svg.append("line")
+                        .attr("class", "connector-line")
+                        .attr("x1", barCenter.x)
+                        .attr("y1", 380)
+                        .attr("x2", pieCenter.x * 1.5)
+                        .attr("y2", pieCenter.y + pieMargin.top + 600);
+                }
             });
         });
     </script>
