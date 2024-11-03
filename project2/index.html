@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Choropleth Map - Maternal Data</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://d3js.org/topojson.v3.min.js"></script>
+    <style>
+
+
+        .tooltip {
+            position: absolute;
+            background-color: white;
+            padding: 5px;
+            border: 1px solid #ccc;
+            pointer-events: none;
+            font-size: 12px;
+        }
+
+        body {
+            margin: 0; /* Remove default body margin */
+        }
+    
+        .container {
+            display: flex; /* Flex container to align children horizontally */
+            align-items: flex-start; /* Align items at the top */
+        }
+    
+        .controls {
+            display: flex;
+            flex-direction: column; /* Stack slider and radio buttons vertically */
+            margin-right: 20px; /* Space between controls and map */
+            margin-top: 50px;
+            margin-left: 20px;
+        }
+    
+        .slider-container {
+            margin-bottom: 20px; /* Space between slider and radio buttons */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="controls">
+            <div class="slider-container">
+                <label class="slider-label">Year:</label>
+                <input type="range" id="yearSlider" min="2016" max="2021" step="1" value="2016" oninput="updateYearLabel(this.value)">
+                <span id="yearLabel" class="slider-value">2016</span>
+            </div>
+
+            <div class="radio-container">
+                <span class="radio-label">Mother's Education Level:</span>
+                <label>
+                    <input type="radio" name="educationLevel" value="below bachelors" onchange="updateMap()" checked>
+                    Below Bachelors
+                </label>
+                <label>
+                    <input type="radio" name="educationLevel" value="bachelors or above" onchange="updateMap()">
+                    Bachelors or Above
+                </label>
+                <label>
+                    <input type="radio" name="educationLevel" value="unknown" onchange="updateMap()">
+                    Unknown
+                </label>
+            </div>
+        </div>
+
+        <svg id="choropleth" width="960" height="600"></svg>
+    </div>
+
+    <script>
+        const svg = d3.select("#choropleth");
+        const width = svg.attr("width");
+        const height = svg.attr("height");
+        const margin = { top: 20, right: 20, bottom: 20, left: 20 };
+        const mapWidth = width - margin.left - margin.right;
+        const mapHeight = height - margin.top - margin.bottom;
+        const map = svg.append("g")
+                    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+
+        let currentYear = 2016;  // Default to the first year in data
+        let updateMap;
+
+        function updateYearLabel(year) {
+            document.getElementById("yearLabel").textContent = year;
+            currentYear = year;
+            updateMap()
+        }
+
+        // Function to load data and create the map
+        const requestData = async function () {
+
+            // Load maternal data CSV
+            const data = await d3.csv("us_births_2016_2021.csv", d3.autoType);  // Update to correct path if needed
+            const state_id_to_name = await d3.json("state_id_to_name.json");
+            // Create state dictionary for maternal data
+            const stateDict = {};
+            data.forEach(d => {
+                stateDict[d.state_code] = d;
+            });
+
+            // Aggregate data by year and state
+            const aggregatedData = d3.rollups(
+                data,
+                v => d3.sum(v, d => +d["Number of Births"]),
+                d => d.State,
+                d => d.Year
+            );
+            // Convert aggregated data to a more usable format
+            const dataByStateYear = {};
+            aggregatedData.forEach(([state, years]) => {
+                dataByStateYear[state] = {};
+                years.forEach(([year, totalBirths]) => {
+                    dataByStateYear[state][year] = totalBirths;
+                });
+            });
+
+            
+            const us = await d3.json("/us-smaller.json");
+            const states = topojson.feature(us, us.objects.states);
+            const statesMesh = topojson.mesh(us, us.objects.states);
+            const projection = d3.geoAlbersUsa().fitSize([mapWidth, mapHeight], states);
+            const path = d3.geoPath().projection(projection);
+
+            map.append("path")
+                .datum(statesMesh)
+                .attr("class", "outline")
+                .attr("d", path);
+
+            let statePaths = map.selectAll("path.state").data(states.features)
+                                .join("path")
+                                .attr("class", "state")
+                                .attr("d", path)
+                                .on('mouseover', mouseEntersState)
+                                .on('mouseout', mouseLeavesState);
+
+            
+            updateMap = function updateMap() {
+                const birthData = Object.values(dataByStateYear).map(d => d[currentYear] || 0);
+                console.log(birthData)
+
+                // Color scale for number of births
+                const colorScale = d3.scaleQuantize()
+                .domain([0, 100000])  // Adjust based on your birth data range
+                .range(d3.schemeBlues[9]);
+
+                // const colorScale = d3.scaleQuantile()
+                //                    .domain(birthData)
+                //                    .range(["#fff", "#d1e8ed", "#adc2da", "#8879b3", "#762b80"]);
+                
+                map.selectAll(".state")
+                .style("fill", function(d) {
+                    
+                    const state_name = state_id_to_name[d.id];
+                    return colorScale(dataByStateYear[state_name]?.[currentYear] || 0)
+                });
+                    
+            }
+
+            updateMap();
+
+
+            // Tooltip setup
+            let tooltip = map.append("g")
+                            .attr("class", "tooltip")
+                            .attr("visibility", "hidden");
+
+            tooltip.append("rect")
+                    .attr("fill", "black")
+                    .attr("opacity", 0.9)
+                    .attr("width", 120)
+                    .attr("height", 40);
+
+            let txt = tooltip.append("text")
+                            .attr("fill", "white")
+                            .attr("text-anchor", "middle")
+                            .attr("x", 60)
+                            .attr("y", 15);
+
+            let txt2 = tooltip.append("text")
+                                .attr("fill", "white")
+                                .attr("text-anchor", "middle")
+                                .attr("x", 60)
+                                .attr("y", 30);
+
+            function mouseEntersState() {
+                tooltip.style("visibility", "visible");
+
+                let state = d3.select(this);
+                let stateID = state.datum().id;
+                let stateName = state_id_to_name[stateID]
+                let births = dataByStateYear[stateName]?.[currentYear] || "No data";
+                
+                txt.text(`State: ${stateName}`);
+                txt2.text(`Births: ${births}`);
+
+                let bounds = path.bounds(state.datum());
+                let xPos = (bounds[0][0] + bounds[1][0]) / 2.0;
+                let yPos = bounds[1][1] - 15;
+
+                tooltip.attr("transform", `translate(${xPos},${yPos})`);
+            }
+
+            function mouseLeavesState() {
+                tooltip.style("visibility", "hidden");
+            }
+        };
+
+        requestData();
+
+    </script>
+</body>
+</html>
