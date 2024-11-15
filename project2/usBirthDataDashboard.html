@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>U.S. Birth Data Map</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://d3js.org/topojson.v3.min.js"></script>
+    <style>
+        h1 {
+            animation:  textBlink 2s infinite; /* Animation name, duration, iteration count */
+            
+        }
+
+        @keyframes textBlink {
+            0% {color:navy; } 
+            50% { color:rgb(97, 199, 251)} 
+            100% {color:navy;;} 
+        }
+        
+        body {
+            margin:1%;
+            /* by Wuyou */
+            font-family: optima, sans-serif;
+        }
+        /* by Calvin */
+        .tooltip {
+            position: absolute;
+            pointer-events: none;
+            /* by Shangshang */
+            font-size: 18px; 
+        }
+
+        /* by Calvin revised by Shangsahng */
+        .container {
+            display: flex;
+            align-items: flex-start;
+            flex-direction:row;
+            margin:1%;
+            overflow: auto;
+            height: 100vh;
+            border: 5px solid #ccc;
+            border-radius: 16px;
+        }
+
+        /* by Calvin */
+        .controls {
+            position: sticky;
+            height:auto;
+            top:0;
+            background-color: lightgoldenrodyellow;
+            border-radius: 16px;
+            padding:0 20px 5vh 20px;
+            display: flex;
+            flex-direction: column;
+            width:58%;
+        }
+
+        .right-container{
+            display: flex;
+            flex-direction: column;
+            width:38%;
+            overflow: auto;
+        }
+
+        .slider-container {
+            margin-top:3%;
+            margin-bottom: 3%;
+        }
+
+        #map-container{
+            /* width:59%; */
+            margin-top:2%;
+        }
+
+        #yearSlider {
+            margin-top: 1%;
+            -webkit-appearance: none;
+            width: 100%;
+            height: 25px;
+            background: lightblue;
+            outline: none;
+            opacity: 0.7;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+        }
+        #yearSlider:hover {
+            opacity: 1;
+        }
+        #yearSlider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 75px;
+            height: 25px;
+            background: navy;
+        }
+        #yearSlider::-webkit-slider-thumb:hover {
+            width: 78px;
+            height: 28px;
+        }
+        .tick text{
+            font-size: .8vw;
+        }
+        /* .row-container{
+            display: flex;
+            align-items: flex-start;
+            flex-direction:row;
+            width:100%;
+        } */
+        #contourPlotDescription{
+            padding:2px 10px;
+            /* border:1px solid #ccc;
+            border-radius: 16px; */
+            background-color: aliceblue;
+            text-align: center;
+            margin-top:5%;
+            color:navy;
+        }
+        #contour-plot-container{
+            margin:5% 2%;
+        }
+
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">👶 U.S. Birth Data Map (2016-2021)</h1>
+    <p style="text-align: center; 
+            color: navy;
+            border:1px solid #ccc; 
+            border-radius: 16px;
+            padding: 16px; margin:0 1%;">
+        This project aims to reveal trends in U.S. birth statistics over time from 2016 to 2021. This visualization will provide insights into the relationships between the maternal education level, average age, and birth rate vary across states and years. Users will be able to explore how region, educational rate, and mother age influenced birth rate.<br>
+        Feel free to use the filter to check detailed information if you want to know more!
+    </p>
+    <div class="container">
+        <div class="controls">
+            <div class="slider-container">
+                <label class="slider-label" style="font-size: 18px;">Year:</label>
+                <span id="yearLabel" class="slider-value" style="font-size: 18px;">2016</span>
+                <input type="range" id="yearSlider" min="2016" max="2021" step="1" value="2016" oninput="updateYearLabel(this.value)">
+                
+            </div>
+
+            <!-- by Wuyou -->
+            <label for="educationLevel" style="font-size: 18px;">Education Level of Mother</label>
+            <select id="educationLevel" class="slider" style="margin-top: 1%;font-family:optima; font-size: 20px;color:rgb(104, 124, 255);">
+                <!-- Shangshang added value 0 as the overall view for the data -->
+                <option value="0">All the Education Levels</option>
+                <option value="1">8th grade or less</option>
+                <option value="2">9th through 12th grade with no diploma</option>
+                <option value="3">High school graduate or GED completed</option>
+                <option value="4">Some college credit, but not a degree</option>
+                <option value="5">Associate degree (AA, AS)</option>
+                <option value="6">Bachelor's degree (BA, AB, BS)</option>
+                <option value="7">Master's degree (MA, MS, MEng, MEd, MSW, MBA)</option>
+                <option value="8">Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)</option>
+            </select>
+            
+            <div id="map-container">
+                <!-- Choropleth Map SVG -->
+                <!-- <svg id="choropleth" width="960" height="600"></svg> -->
+                <svg id="choropleth" viewBox="0 0 960 600" style="width: 100%; height: auto;"></svg>
+                <div id="legend-container" style="text-align: center;">
+                    <svg id="legend" width="600" height="50"></svg>
+                </div>
+            </div>
+            
+        </div>
+        <div class="right-contianer">
+            <div id="line-plot-container" style="margin-top:5%;">
+                <!-- Line Plot SVG -->
+                <!-- <svg id="line-plot" width="600" height="400" style="margin-left: 20px;"></svg> -->
+                <svg id="line-plot" viewBox="0 0 600 350" style="width: 100%; height: auto;"></svg>
+            </div>
+            <div id="contourPlotDescription">
+                <p>The contour plot allows users to explore relationships between maternal age and educational attainment, uncovering patterns such as age ranges commonly associated with specific education levels.</p>
+                <p>By interacting with the year range filter and the choropleth map, the plot dynamically filters to reveal state-specific insights based on the selected year.</p>
+            </div>
+            <div id="contour-plot-container" style="text-align: center;">
+                <svg id="contour-plot" viewBox="0 0 900 400" ></svg>
+            </div>
+        </div>
+        
+        
+    </div>
+    <!-- <dic class="row-container">
+        <div id="contourPlotDescription">
+            <p>This plot allows users to explore relationships between maternal age and educational attainment, uncovering patterns such as age ranges commonly associated with specific education levels.</p>
+            <p>By interacting with the year range filter and the choropleth map, the plot dynamically filters to reveal state-specific insights based on the selected year.</p>
+        </div>
+        <div id="contour-plot-container" style="text-align: center;">
+            <svg id="contour-plot" viewBox="0 0 900 400" ></svg>
+        </div>
+    </div> -->
+
+    <div id="line-tooltip" style="position: absolute; visibility: hidden; background: white; opacity:0.9;border: 1px solid black; border-radius: 5px; padding: 5px; pointer-events: none; font-size: 14px;"></div>
+
+    <script>
+
+        //Shangshang adapted the code to web browser responsive by adding viewBox
+        const svg = d3.select("#choropleth");
+        const viewBox = svg.attr("viewBox").split(" ");
+        const width = +viewBox[2]; // width from viewBox
+        const height = +viewBox[3]; // height from viewBox
+        const margin = { top: 20, right: 20, bottom: 20, left: 20 };
+        const mapWidth = width - margin.left - margin.right;
+        const mapHeight = height - margin.top - margin.bottom;
+
+        //Calvin's code for map svg setting
+        const map = svg.append("g").attr("transform", `translate(${margin.left},${margin.top})`);
+
+        let currentYear = 2016;
+        let updateMap, updateLinePlot;
+
+        function updateYearLabel(year) {
+            document.getElementById("yearLabel").textContent = year;
+            //for map - by Calvin;
+            currentYear = year;
+            updateMap();
+            //for line plot - by Shangshang;
+            currentYear = +year;
+            updateLinePlot();
+            updateContour();
+        }
+
+        // set the Overall data as default by Shangshang
+        let selectedEducationLevel = "0"; //store the selected education level from the dropdown
+        // Event listener for education level selection
+        d3.select("#educationLevel").on("change", function() {
+            selectedEducationLevel = this.value;
+            updateMap();
+            updateLinePlot();
+            // updateContour();
+        });
+
+        const requestData = async function () {
+            const data = await d3.csv("us_births_2016_2021.csv", d3.autoType);
+            console.log(data);
+            const state_id_to_name = await d3.json("state_id_to_name.json");
+
+            //for map - by Calvin;
+            // Create state dictionary for maternal data
+            const stateDict = {};
+            data.forEach(d => {
+                stateDict[d.state_code] = d;
+            });
+
+            //for map - by Calvin;
+            // Aggregate data by year and state
+            const aggregatedData = d3.rollups(
+                data,
+                v => d3.sum(v, d => +d["Number of Births"]),
+                //sum of the number of births given by all ages of mom;
+                d => d.State,
+                d => d.Year
+            );
+           console.log('aggregatedData');
+           console.log(aggregatedData);
+            // Convert aggregated data to a more usable format
+            // Shangshang change Calvin's dataByStateYear to aggregatedDataByStateYear.
+            const aggregatedDataByStateYear = {};
+            aggregatedData.forEach(([state, years]) => {
+                aggregatedDataByStateYear[state] = {};
+                years.forEach(([year, totalBirths]) => {
+                    aggregatedDataByStateYear[state][year] = totalBirths;
+                });
+            });
+            console.log('aggregatedDataByStateYear');
+            console.log(aggregatedDataByStateYear);
+
+            //data based on specific education level
+            //by Wuyou - Adapted by Shangshang
+            const educationDataByStateYear = {};
+
+            // Iterate through the data to populate the structure
+            data.forEach(d => {
+                if (!educationDataByStateYear[d.State]) {
+                    educationDataByStateYear[d.State] = {};
+                }
+                if (!educationDataByStateYear[d.State][d.Year]) {
+                    educationDataByStateYear[d.State][d.Year] = {
+                        educationLevels: {}
+                    };
+                }
+                if (!educationDataByStateYear[d.State][d.Year].educationLevels[d["Education Level Code"]]) {
+                    educationDataByStateYear[d.State][d.Year].educationLevels[d["Education Level Code"]] = 0;
+                }
+                // Accumulate the births
+                educationDataByStateYear[d.State][d.Year].educationLevels[d["Education Level Code"]] += d["Number of Births"];
+            });
+            console.log('educationDataByStateYear:');
+            console.log(educationDataByStateYear);
+
+            //line plot
+
+            //for line plot which don't use aggregatedData - by Shangshang;
+            const dataByStateYear = {};
+            data.forEach(d => {
+                if (!dataByStateYear[d.State]) dataByStateYear[d.State] = {};
+                dataByStateYear[d.State][d.Year] = {
+                    births: d["Number of Births"],
+                    avgAge: d["Average Age of Mother (years)"]
+                };
+            });
+            console.log('dataByStateYear:');
+            console.log(dataByStateYear);
+
+            //for map - by Calvin;
+            const us = await d3.json("us-smaller.json");
+            const states = topojson.feature(us, us.objects.states);
+            const statesMesh = topojson.mesh(us, us.objects.states);
+            const projection = d3.geoAlbersUsa().fitSize([mapWidth, mapHeight], states);
+            const path = d3.geoPath().projection(projection);
+            map.append("path")
+                .datum(statesMesh)
+                .attr("class", "outline")
+                .attr("d", path);
+            let statePaths = map.selectAll("path.state").data(states.features)
+                            .join("path")
+                            .attr("class", "state")
+                            .attr("d", path)
+                            //need to check whether the mouse functions are included in this file - shangshang
+                            .on('mouseover', mouseEntersState)
+                            .on('mouseout', mouseLeavesState);
+            
+            
+            updateMap = function updateMap() {
+                if (selectedEducationLevel === "0") {
+                // Use aggregatedDataByStateYear for all education levels
+                const aggregatedBirthData = Object.keys(aggregatedDataByStateYear).map(state => ({
+                    state,
+                    births: aggregatedDataByStateYear[state][currentYear] || 0,
+                }));
+
+                const aggColorScale = d3.scaleQuantize()
+                    .domain([0, 100000])
+                    .range(d3.schemeBlues[9]);
+                // Draw the legend
+                drawLegend("#legend", aggColorScale);
+
+                map.selectAll(".state")
+                    .style("fill", function(d) {
+                        const stateData = aggregatedBirthData.find(s => s.state === state_id_to_name[d.id]);
+                        return aggColorScale(stateData ? stateData.births : 0);
+                    })
+                    .style("stroke","#ccc")
+                        .style("stroke-width",1);
+
+                } else {
+                    // Use educationDataByStateYear for specific education levels
+                    const specificBirthData = Object.keys(educationDataByStateYear).map(state => ({
+                        state,
+                        births: educationDataByStateYear[state]?.[currentYear]?.educationLevels[selectedEducationLevel] || 0,
+                    }));
+
+                    const colorScale = d3.scaleQuantize()
+                        .domain([0, d3.max(specificBirthData, d => d.births)])
+                        .range(d3.schemeBlues[9]);
+                    // Draw the legend
+                    drawLegend("#legend", colorScale);
+
+                    map.selectAll(".state")
+                        .style("fill", function(d) {
+                            const stateData = specificBirthData.find(s => s.state === state_id_to_name[d.id]);
+                            return colorScale(stateData ? stateData.births : 0);
+                        })
+                        .style("stroke","#ccc")
+                        .style("stroke-width",1);
+                }
+            };
+            updateMap();
+
+            let tooltip = map.append("g")
+                            .attr("class", "tooltip")
+                            .attr("visibility", "hidden");
+            tooltip.append("rect")
+                    .attr("fill", "white")
+                    .attr("opacity", 0.9)
+                    .attr("width", 180)
+                    .attr("height", 50)
+                    // to add radius to the tooltip - by Shangshang
+                    .attr("rx", 5)
+                    .attr("ry", 5)
+                    // border style by Wuyou
+                    .attr("stroke", "black")
+                    .attr("stroke-width", 2);
+
+                    
+            let txt = tooltip.append("text")
+                            .attr("fill", "black")
+                            .attr("text-anchor", "middle")
+                            .attr("x", 90)
+                            .attr("y", 20);
+            let txt2 = tooltip.append("text")
+                                .attr("fill", "black")
+                                .attr("text-anchor", "middle")
+                                .attr("x", 90)
+                                .attr("y", 40);
+            
+            function mouseEntersState() {
+                tooltip.style("visibility", "visible");
+
+                let state = d3.select(this);
+                let stateID = state.datum().id;
+                let stateName = state_id_to_name[stateID];
+                let births;
+
+                if (selectedEducationLevel === "0") {
+                    // Use aggregatedDataByStateYear for all education levels
+                    births = aggregatedDataByStateYear[stateName]?.[currentYear] || "No data";
+                } else {
+                    // Use educationDataByStateYear for specific education levels
+                    births = educationDataByStateYear[stateName]?.[currentYear]?.educationLevels[selectedEducationLevel] || "No data";
+                }
+
+                txt.text(`State: ${stateName}`);
+                txt2.text(`Births: ${births}`);
+
+                let bounds = path.bounds(state.datum());
+                let xPos = (bounds[0][0] + bounds[1][0]) / 2.0;
+                let yPos = bounds[1][1] - 15;
+
+                if (xPos > width - width / 5) {
+                    tooltip.attr("transform", `translate(${xPos - xPos / 5},${yPos})`);
+                } else {
+                    if (yPos > height - height / 8) {
+                        tooltip.attr("transform", `translate(${xPos},${yPos - yPos / 8})`);
+                    } else {
+                        tooltip.attr("transform", `translate(${xPos},${yPos})`);
+                    }
+                }
+                updateContour(stateName);
+            }
+            function mouseLeavesState() {
+                tooltip.style("visibility", "hidden");
+                updateContour(null);
+            }
+
+
+            // Setup for Line Plot - by Shangshang
+            const lineSvg = d3.select("#line-plot");
+            const viewBox = lineSvg.attr("viewBox").split(" ");
+            const lineWidth = +viewBox[2];  // Width from viewBox
+            const lineHeight = +viewBox[3];  // Height from viewBox
+            const lineMargin = { top: 20, right: 35, bottom: 50, left: 70 };
+            const innerWidth = lineWidth - lineMargin.left - lineMargin.right;
+            const innerHeight = lineHeight - lineMargin.top - lineMargin.bottom;
+            const lineGroup = lineSvg.append("g")
+                .attr("transform", `translate(${lineMargin.left+10},${lineMargin.top})`);
+
+            const xScale = d3.scaleLinear().range([0, innerWidth]);
+            const yScale = d3.scaleLinear().range([innerHeight, 0]);
+
+            lineGroup.append("g")
+                .attr("transform", `translate(0,${innerHeight})`)
+                .attr("class", "x-axis");
+            lineGroup.append("g").attr("class", "y-axis");
+
+            lineGroup.append("text")
+                .attr("x", innerWidth / 2)
+                .attr("y", innerHeight + 40)
+                .style("text-anchor", "middle")
+                .text("Average Age of Mother (years)");
+            lineGroup.append("text")
+                .attr("x", -innerHeight / 2)
+                .attr("y", -60)
+                .attr("transform", "rotate(-90)")
+                .style("text-anchor", "middle")
+                .text("Total Number of Births");
+            updateLinePlot = function updateLinePlot() {
+                let yearData;
+
+                if (selectedEducationLevel === "0") {
+                    yearData = data
+                        .filter(d => d.Year === currentYear && 
+                                    // add the following condition for education level selector
+                                    (selectedEducationLevel === "0" 
+                                    || selectedEducationLevel == d["Education Level"]))
+                        .reduce((accmultedBirthNumForAveAge, d) => {
+                            const avgAge = d["Average Age of Mother (years)"];
+                            const births = d["Number of Births"];
+                            if (!accmultedBirthNumForAveAge[avgAge]) accmultedBirthNumForAveAge[avgAge] = 0;
+                            accmultedBirthNumForAveAge[avgAge] += births;
+                            return accmultedBirthNumForAveAge;
+                        }, {});
+                }
+                else{
+                    // Specific education level data using educationDataByStateYear
+                    yearData = Object.entries(educationDataByStateYear)
+                    //acc => accmultedBirthNumForAveAge
+                        .reduce((acc, [state, yearObj]) => {
+                            if (yearObj[currentYear] && yearObj[currentYear].educationLevels[selectedEducationLevel]) {
+                                const avgAge = data.find(d => d.State === state && d.Year === currentYear && d["Education Level Code"] == selectedEducationLevel)?.["Average Age of Mother (years)"];
+                                const births = yearObj[currentYear].educationLevels[selectedEducationLevel];
+                                if (avgAge !== undefined) {
+                                    if (!acc[avgAge]) acc[avgAge] = 0;
+                                    acc[avgAge] += births;
+                                }
+                            }
+                            return acc;
+                        }, {});
+                }
+
+                const aggregatedData = Object.entries(yearData).map(([age, births]) => ({
+                    //+age convert string to num
+                    avgAge: +age,
+                    births
+                })).sort((a, b) => a.avgAge - b.avgAge);
+
+                xScale.domain(d3.extent(aggregatedData, d => d.avgAge));
+                yScale.domain([0, d3.max(aggregatedData, d => d.births) * 1.1]);
+
+                lineGroup.select(".x-axis").call(d3.axisBottom(xScale));
+                lineGroup.select(".y-axis").call(d3.axisLeft(yScale));
+
+                const line = d3.line()
+                    .x(d => xScale(d.avgAge))
+                    .y(d => yScale(d.births))
+                    .curve(d3.curveMonotoneX);
+
+                const path = lineGroup.selectAll(".line").data([aggregatedData]);
+
+                const lineGroupColor="navy";
+
+                //Shangshang: The path animation is credit to ChatGPT refer to https://observablehq.com/@d3/connected-scatterplot/2
+                path.enter().append("path")
+                    .attr("class", "line")
+                    .merge(path)
+                    .attr("fill", "none")
+                    .attr("stroke", lineGroupColor)
+                    .attr("stroke-width", 1.5)
+                    .attr("d", line)
+                    .attr("stroke-dasharray", function () {
+                        const length = this.getTotalLength();
+                        return `${length} ${length}`;
+                    })//The stroke-dasharray specifies the pattern of dashes and gaps in the line, initialized with the total length of the line.
+                    .attr("stroke-dashoffset", function () {
+                        return this.getTotalLength();
+                    })//The stroke-dashoffset starts at the total length, making the line invisible, and transitions to 0, making the line visible.
+                    .transition()
+                    .duration(1500) // Adjust duration as needed
+                    .attr("stroke-dashoffset", 0);  // Animate drawing to the end
+
+                path.exit().remove();
+
+                // Add dots at each data point
+                const dots = lineGroup.selectAll(".dot").data(aggregatedData);
+
+                dots.enter().append("circle")
+                    .attr("class", "dot")
+                    .attr("r", 4)
+                    .attr("fill", lineGroupColor)
+                    .merge(dots)
+                    .attr("cx", d => xScale(d.avgAge))
+                    .attr("cy", d => yScale(d.births))
+                    .on("mouseover", function (event, d) {
+                        d3.select(this)
+                            .transition()
+                            .duration(100)
+                            .attr("r", 8);
+                        const tooltip = d3.select("#line-tooltip");
+                        tooltip.style("visibility", "visible")
+                            .html(`Average Age: ${d.avgAge}<br>Births: ${d.births}`);
+                    })
+                    .on("mousemove", function (event) {
+                        const tooltip = d3.select("#line-tooltip");
+                        tooltip.style("top", `${event.pageY + 10}px`)
+                            .style("left", `${event.pageX + 10}px`);
+                    })
+                    .on("mouseout", function () {
+                        d3.select(this)
+                            .transition()
+                            .duration(100)
+                            .attr("r", 4); // Original radius
+                        d3.select("#line-tooltip").style("visibility", "hidden");
+                    });
+
+                dots.exit().remove();
+            };
+
+            // updateMapAndLinePlot();
+            updateLinePlot();
+
+
+
+            const educationLevelMapping = {
+                1: "8th grade or less",
+                2: "9th through 12th grade with no diploma",
+                3: "High school graduate or GED completed",
+                4: "Some college credit, but not a degree",
+                5: "Associate degree (AA, AS)",
+                6: "Bachelor's degree (BA, AB, BS)",
+                7: "Master's degree (MA, MS, MEng, MEd, MSW, MBA)",
+                8: "Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)"
+            };
+            //create countour plot
+            const contourSvg = d3.select("#contour-plot");
+            const contourViewBox = contourSvg.attr("viewBox").split(" ");
+            const contourWidth = +contourViewBox[2];
+            const contourHeight = +contourViewBox[3];
+            const contourMargin = { top: 80, right: 60, bottom: 71, left: 400 };
+            const contourInnerWidth = contourWidth - contourMargin.left - contourMargin.right;
+            const contourInnerHeight = contourHeight - contourMargin.top - contourMargin.bottom;
+            const contourGroup = contourSvg.append("g")
+                .attr("transform", `translate(${contourMargin.left},${contourMargin.top})`);
+            
+            updateContour = function updateContour(selectedState) {
+                // const filteredData = data.filter(d => d.Year === currentYear && d["Education Level Code"] >= 0)
+                //                         //negative value existing for edu level code due to -9 for unknown edu level
+                //                         .map(d => ({
+                //                                     x: d["Average Age of Mother (years)"],
+                //                                     y: d["Education Level Code"]
+                //                                 }));
+                let filteredData;
+
+                if (selectedState) {
+                    // Filter data for the specific state
+                    filteredData = data.filter(
+                        (d) => d.Year === currentYear && d.State === selectedState && d["Education Level Code"] >= 0
+                    );
+                } else {
+                    // Use all data if no specific state is selected
+                    filteredData = data.filter(
+                        (d) => d.Year === currentYear && d["Education Level Code"] >= 0
+                    );
+                }
+                const formattedData = filteredData.map(d => ({
+                                                                x: d["Average Age of Mother (years)"],
+                                                                y: d["Education Level Code"]
+                                                            }));
+
+                const xScale = d3.scaleLinear()
+                                .domain(d3.extent(formattedData, d => d.x))
+                                .range([0, contourInnerWidth]);
+                const yScale = d3.scaleLinear()
+                                .domain(d3.extent(formattedData, d => d.y))
+                                .range([contourInnerHeight, 0]);
+
+                const densityData = d3.contourDensity()
+                                        .x(d => xScale(d.x))
+                                        .y(d => yScale(d.y))
+                                        .size([contourWidth, contourHeight])
+                                        .bandwidth(30)(formattedData);
+                const colorScale = d3.scaleSequential(d3.interpolateViridis)
+                                    .domain([0, d3.max(densityData, d => d.value)]);
+                const contours = contourGroup.selectAll("path")
+                                            .data(densityData);
+
+                // contours.enter()
+                //     .append("path")
+                //     .merge(contours)
+                //     .attr("d", d3.geoPath())
+                //     .attr("fill", "none")
+                //     .attr("stroke", d => colorScale(d.value));
+                contours.enter()
+                    .append("path")
+                    .merge(contours)
+                    .attr("d", d3.geoPath())
+                    .attr("fill", "none")
+                    .attr("stroke", "#00bfff");
+
+                contours.exit().remove();
+
+                // Update axes
+                contourGroup.selectAll(".x-axis").remove();
+                contourGroup.selectAll(".y-axis").remove();
+                const xAxis = d3.axisBottom(xScale).ticks(10).tickSizeOuter(0);
+                // const yAxis = d3.axisLeft(yScale).ticks(10).tickSizeOuter(0);
+                const yAxis = d3.axisLeft(yScale)
+                                .ticks(8)
+                                .tickFormat(d => educationLevelMapping[d] || "Unknown");
+                
+
+                contourGroup.append("g")
+                    .attr("class", "x-axis")
+                    .attr("transform", `translate(0,${contourInnerHeight})`)
+                    .call(xAxis)
+                    .append("text")
+                    .attr("x", contourInnerWidth / 2)
+                    .attr("y", 40)
+                    .attr("fill", "black")
+                    .attr("text-anchor", "middle")
+                    .attr('font-size',14)
+                    .attr("font-family", "optima")
+                    .text("Average Age of Mother (years)");
+
+                contourGroup.append("g")
+                    .attr("class", "y-axis")
+                    .call(yAxis)
+                    .append("text")
+                    .attr("x", -contourInnerHeight / 2)
+                    .attr("y", -380)
+                    .attr("fill", "black")
+                    .attr("text-anchor", "middle")
+                    .attr("transform", "rotate(-90)")
+                    .attr('font-size',14)
+                    .attr("font-family", "optima")
+                    .text("Education Level of Mother");
+
+            };
+           updateContour();
+
+
+
+        };
+
+        requestData();
+    </script>
+
+    <script>
+    // Shangshang added "legend.selectAll("*").remove(); " under const legend = d3.select(legendSelector);
+    // Remove all existing elements in the legend SVG - make the legend responsive
+
+    // Flexible legend-drawing function - Jeff Rzeszotarski, 2022
+    //   Released under MIT Free license
+    //  Takes in an SVG element selector <legendSelector> and a d3 color scale <legendColorScale>
+    //
+    // Usage example: drawLegend("#legendID", grossIncomeColorScale)
+    function drawLegend(legendSelector, legendColorScale) {
+
+      // This code should adapt to a variety of different kinds of color scales
+      //  Credit Prof. Rz if you are basing a legend on this structure, and note PERFORMANCE CONSIDERATIONS
+      
+      // Shrink legend bar by 5 px inwards from sides of SVG
+      const offsets = { width: 10,
+                        top: 2,
+                        bottom: 24 }; 
+      // Number of integer 'pixel steps' to draw when showing continuous scales
+      //    Warning, not using a canvas element so lots of rect tags will be created for low stepSize, causing issues with performance -- keep this large
+      const stepSize = 4; 
+      // Extend the minmax by 0% in either direction to expose more features by default
+      const minMaxExtendPercent = 0;
+       
+      const legend = d3.select(legendSelector);
+      legend.selectAll("*").remove(); 
+      const legendHeight = legend.attr("height");
+      const legendBarWidth = legend.attr("width") - (offsets.width * 4);
+      const legendMinMax = d3.extent(legendColorScale.domain()); 
+                  // recover the min and max values from most kinds of numeric scales
+      const minMaxExtension = (legendMinMax[1] - legendMinMax[0]) * minMaxExtendPercent;
+      const barHeight = legendHeight - offsets.top - offsets.bottom;     
+      
+      // In this case the "data" are pixels, and we get numbers to use in colorScale
+      // Use this to make axis labels
+      let barScale = d3.scaleLinear().domain([legendMinMax[0]-minMaxExtension,
+                                                legendMinMax[1]+minMaxExtension])
+                                     .range([0,legendBarWidth]);
+      let barAxis = d3.axisBottom(barScale);
+      
+      // Place for bar slices to live
+      let bar = legend.append("g")
+                      .attr("class", "legend colorbar")
+                      .attr("transform", `translate(${offsets.width},${offsets.top})`)
+      
+      // ****** SWITCHES FOR DIFFERENT SCALE TYPES ******
+      
+      // Check if we're using a binning scale - if so, we make blocks of color
+      if (legendColorScale.hasOwnProperty('thresholds') || legendColorScale.hasOwnProperty('quantiles')) {
+        // Get the thresholds
+        let thresholds = [];
+        if (legendColorScale.hasOwnProperty('thresholds')) { thresholds = legendColorScale.thresholds() }
+        else { thresholds = legendColorScale.quantiles() }
+        
+        const barThresholds = [legendMinMax[0], ...thresholds, legendMinMax[1]];
+        
+        // Use the quantile breakpoints plus the min and max of the scale as tick values
+        barAxis.tickValues(barThresholds);
+        
+        // Draw rectangles between the threshold segments
+        for (let i=0; i<barThresholds.length-1; i++) {
+          let dataStart = barThresholds[i];
+          let dataEnd = barThresholds[i+1];
+          let pixelStart = barAxis.scale()(dataStart);
+          let pixelEnd = barAxis.scale()(dataEnd);
+          
+          bar.append("rect")
+             .attr("x", pixelStart)
+             .attr("y", 0)
+             .attr("width", pixelEnd - pixelStart )
+             .attr("height", barHeight)
+             .style("fill", legendColorScale( (dataStart + dataEnd) / 2.0 ) ); 
+        }
+      }
+      // Else if we have a continuous / roundable scale
+      //  In an ideal world you might construct a custom gradient mapped to the scale
+      //  For this one, we use a hack of making stepped rects
+      else if (legendColorScale.hasOwnProperty('rangeRound')) {
+        // NOTE: The barAxis may round min and max values to make them pretty
+        // ** This also means there is a risk of the legend going beyond scale bounds
+        // We need to use the barAxis min and max just to be sure the bar is complete
+        //    Using barAxis.scale().invert() goes from *axis* pixels to data values easily
+        // ** We also need to create patches for the scale if the labels exceed bounds
+        //     (floating point comparisons risky for small data ranges,but not a big deal
+        //      because patches will be indistinguishable from actual scale bottom)
+        // It's likely that scale clamping will actually do this for us elegantly
+        // ...but better to be safer and patch the regions anyways
+        
+        for (let i=0; i<legendBarWidth; i=i+stepSize) {
+          
+          let center = i+(stepSize/2);
+          let dataCenter = barAxis.scale().invert( center );
+          
+          // below normal scale bounds
+          if ( dataCenter < legendMinMax[0] ) { 
+            bar.append("rect")
+               .attr("x", i)
+               .attr("y", 0)
+               .attr("width", stepSize)
+               .attr("height",barHeight)
+               .style("fill", legendColorScale( legendMinMax[0] ) ); 
+           }
+           // within normal scale bounds
+           else if ( dataCenter < legendMinMax[1] ) {
+             bar.append("rect")
+                .attr("x", i)
+                .attr("y", 0)
+                .attr("width", stepSize)
+                .attr("height",barHeight)
+                .style("fill", legendColorScale( dataCenter ) ); 
+           }
+           // above normal scale bounds
+           else {
+             bar.append("rect")
+                .attr("x", i)
+                .attr("y", 0)
+                .attr("width", stepSize)
+                .attr("height",barHeight)
+                .style("fill", legendColorScale( legendMinMax[1] ) ); 
+           }
+          
+        }
+      }
+      // Otherwise we have a nominal scale
+      else {
+        let nomVals = legendColorScale.domain().sort();
+        
+        // Use a scaleBand to make blocks of color and simple labels
+        let barScale = d3.scaleBand().domain(nomVals)
+                                     .range([0,legendBarWidth])
+                                     .padding(0.05);
+        barAxis.scale(barScale);
+        
+        // Draw rectangles for each nominal entry
+        nomVals.forEach( d => {
+          bar.append("rect")
+             .attr("x", barScale(d) )
+             .attr("y", 0)
+             .attr("width", barScale.bandwidth() )
+             .attr("height", barHeight)
+             .style("fill", legendColorScale( d ) );
+        });
+      }
+      // DONE w/SWITCH
+      
+      // Finally, draw legend labels
+      legend.append("g")
+            .attr("class", "legend axis")
+            .attr("transform",`translate(${offsets.width},${offsets.top+barHeight+5})`)
+            .call(barAxis);
+      
+    }
+    </script>
+</body>
+</html>

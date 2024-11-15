@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>U.S. Birth Data Map</title>
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+  <script src="https://unpkg.com/topojson@3"></script>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      display: flex;
+      align-items: flex-start;
+    }
+    svg {
+      border: 1px solid #ccc;
+    }
+    .filter-container {
+      display: flex;
+      flex-direction: column;
+      margin-right: 20px;
+      font-size: 14px;
+    }
+    .tooltip {
+      position: absolute;
+      padding: 5px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid #333;
+      border-radius: 3px;
+      pointer-events: none;
+      font-size: 12px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h2>U.S. Birth Data Map (2016-2021)</h2>
+  <div class="container">
+    <div class="filter-container">
+      <label for="yearRange">Select Year:</label>
+      <input type="range" min="2016" max="2021" value="2016" class="slider" id="yearRange" step="1">
+      <span id="yearRangeLabel">2016</span>
+    </div>
+    <svg width="960" height="600"></svg>
+  </div>
+  <div class="tooltip" style="opacity: 0;"></div>
+
+  <script>
+    const width = 960, height = 600;
+    const svg = d3.select("svg");
+    const tooltip = d3.select(".tooltip");
+
+    // Load map and birth data
+    Promise.all([
+      d3.json("us-smaller.json"), // U.S. map data
+      d3.csv("us_births_2016_2021.csv", d => ({
+        state: d.state,
+        year: +d.year,
+        births: +d.births
+      }))
+    ]).then(([us, birthData]) => {
+      const birthDataByState = {};
+
+      // Organize birth data by state and year
+      birthData.forEach(d => {
+        if (!birthDataByState[d.state]) birthDataByState[d.state] = {};
+        birthDataByState[d.state][d.year] = d.births;
+      });
+
+      // Map projection
+      const projection = d3.geoAlbersUsa()
+        .scale(1200)
+        .translate([width / 2, height / 2]);
+
+      const path = d3.geoPath().projection(projection);
+
+      // Draw the map
+      svg.append("g")
+        .selectAll("path")
+        .data(topojson.feature(us, us.objects.states).features)
+        .enter().append("path")
+        .attr("fill", "#ddd")
+        .attr("stroke", "#333")
+        .attr("stroke-width", 0.5)
+        .attr("d", path)
+        .on("mouseover", function(event, d) {
+          const stateName = d.properties.name;
+          const year = +d3.select("#yearRange").node().value;
+          const births = birthDataByState[stateName]?.[year] || 0;
+
+          d3.select(this).attr("fill", "#ffcc00");
+
+          tooltip.transition().duration(200).style("opacity", 0.9);
+          tooltip.html(`State: ${stateName}<br>Year: ${year}<br>Births: ${births}`)
+            .style("left", (event.pageX + 5) + "px")
+            .style("top", (event.pageY - 28) + "px");
+        })
+        .on("mouseout", function() {
+          d3.select(this).attr("fill", "#ddd");
+          tooltip.transition().duration(500).style("opacity", 0);
+        });
+
+      // Update year label and map when slider changes
+      function updateMap() {
+        const year = +d3.select("#yearRange").node().value;
+        d3.select("#yearRangeLabel").text(year);
+      }
+
+      d3.select("#yearRange").on("input", updateMap);
+      updateMap();
+    }).catch(error => console.error("Error loading data:", error));
+  </script>
+</body>
+</html>
+
