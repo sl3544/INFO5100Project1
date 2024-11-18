@@ -98,7 +98,7 @@
             height: 28px;
         }
         .tick text{
-            font-size: .8vw;
+            font-size: .7vw;
         }
         /* .row-container{
             display: flex;
@@ -333,7 +333,7 @@
 
                 const aggColorScale = d3.scaleQuantize()
                     .domain([0, 100000])
-                    .range(d3.schemeBlues[9]);
+                    .range(d3.schemeBlues[8]);
                 // Draw the legend
                 drawLegend("#legend", aggColorScale);
 
@@ -352,9 +352,16 @@
                         births: educationDataByStateYear[state]?.[currentYear]?.educationLevels[selectedEducationLevel] || 0,
                     }));
 
-                    const colorScale = d3.scaleQuantize()
-                        .domain([0, d3.max(specificBirthData, d => d.births)])
-                        .range(d3.schemeBlues[9]);
+                    //const colorScale = d3.scaleQuantize()
+                    //    .domain([0, d3.max(specificBirthData, d => d.births)])
+                    //    .range(d3.schemeBlues[8]);
+
+                    specificBirthDataValues = specificBirthData.map(d => d.births)
+                    specificBirthDataValues.push(0)
+                    const colorScale = d3.scaleQuantile()
+                    .domain(specificBirthDataValues) 
+                    .range(d3.schemeBlues[4]); 
+                    
                     // Draw the legend
                     drawLegend("#legend", colorScale);
 
