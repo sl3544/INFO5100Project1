@@ -53,6 +53,7 @@
             display: flex;
             flex-direction: column;
             width:58%;
+            height:100%;
         }
 
         .right-container{
@@ -129,7 +130,7 @@
             border-radius: 16px;
             padding: 16px; margin:0 1%;">
         This project aims to reveal trends in U.S. birth statistics over time from 2016 to 2021. This visualization will provide insights into the relationships between the maternal education level, average age, and birth rate vary across states and years. Users will be able to explore how region, educational rate, and mother age influenced birth rate.<br>
-        Feel free to use the filter to check detailed information if you want to know more!
+        Feel free to use the filters for Birth Year, Maternal Education Level, and the interactive map to dive deeper into the data. The website is also designed to be fully responsive to window size changes for an optimized viewing experience.
     </p>
     <div class="container">
         <div class="controls">
@@ -160,7 +161,7 @@
                 <!-- <svg id="choropleth" width="960" height="600"></svg> -->
                 <svg id="choropleth" viewBox="0 0 960 600" style="width: 100%; height: auto;"></svg>
                 <div id="legend-container" style="text-align: center;">
-                    <svg id="legend" width="600" height="50"></svg>
+                    <svg id="legend" viewBox="0 0 600 50" style="width: 100%; height: auto;"></svg>
                 </div>
             </div>
             
@@ -528,7 +529,7 @@
 
                 const lineGroupColor="navy";
 
-                //Shangshang: The path animation is credit to ChatGPT refer to https://observablehq.com/@d3/connected-scatterplot/2
+                //Shangshang: The path animation is revised from the animation of Connected scartterplot published by D3 on Observable (https://observablehq.com/@d3/connected-scatterplot/2)
                 path.enter().append("path")
                     .attr("class", "line")
                     .merge(path)
@@ -604,7 +605,8 @@
             const contourViewBox = contourSvg.attr("viewBox").split(" ");
             const contourWidth = +contourViewBox[2];
             const contourHeight = +contourViewBox[3];
-            const contourMargin = { top: 80, right: 60, bottom: 71, left: 400 };
+            // const contourMargin = { top: 80, right: 60, bottom: 71, left: 300 };
+            const contourMargin = { top: 80, right: 60, bottom: 71, left: contourWidth/3.5 };
             const contourInnerWidth = contourWidth - contourMargin.left - contourMargin.right;
             const contourInnerHeight = contourHeight - contourMargin.top - contourMargin.bottom;
             const contourGroup = contourSvg.append("g")
@@ -695,7 +697,7 @@
                     .call(yAxis)
                     .append("text")
                     .attr("x", -contourInnerHeight / 2)
-                    .attr("y", -380)
+                    .attr("y", -contourInnerWidth/3-contourInnerWidth/11)
                     .attr("fill", "black")
                     .attr("text-anchor", "middle")
                     .attr("transform", "rotate(-90)")
@@ -715,6 +717,7 @@
 
     <script>
     // Shangshang added "legend.selectAll("*").remove(); " under const legend = d3.select(legendSelector);
+    //the legentHeight and legentWidth variables are also modified for window response;
     // Remove all existing elements in the legend SVG - make the legend responsive
 
     // Flexible legend-drawing function - Jeff Rzeszotarski, 2022
@@ -739,8 +742,15 @@
        
       const legend = d3.select(legendSelector);
       legend.selectAll("*").remove(); 
-      const legendHeight = legend.attr("height");
-      const legendBarWidth = legend.attr("width") - (offsets.width * 4);
+
+      //add for viewbox to make the legend responsive to window change;
+      const containerWidth = legend.node().getBoundingClientRect().width; // Get dynamic width
+      const legendBarWidth = containerWidth - 20; // Add some padding
+      const legendHeight = legend.attr("height") || 50; // Keep height as defined
+      //an exact height value must be assigned at the very beginning
+
+    //   const legendHeight = legend.attr("height");
+    //   const legendBarWidth = legend.attr("width") - (offsets.width * 4);
       const legendMinMax = d3.extent(legendColorScale.domain()); 
                   // recover the min and max values from most kinds of numeric scales
       const minMaxExtension = (legendMinMax[1] - legendMinMax[0]) * minMaxExtendPercent;
