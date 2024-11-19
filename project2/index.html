@@ -745,7 +745,7 @@
 
       //add for viewbox to make the legend responsive to window change;
       const containerWidth = legend.node().getBoundingClientRect().width; // Get dynamic width
-      const legendBarWidth = containerWidth - 20; // Add some padding
+      const legendBarWidth = containerWidth - (offsets.width * 8); // Add some padding
       const legendHeight = legend.attr("height") || 50; // Keep height as defined
       //an exact height value must be assigned at the very beginning
 
