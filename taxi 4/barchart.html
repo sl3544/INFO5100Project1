@@ -105,15 +105,16 @@
             .style("stroke", "white");
 
        
-            svg.selectAll(".bar")
-    .data(data)
-    .append("rect")
-    .attr("class", "bar")
-    .attr("x", d => x(d.trafficCondition))
-    .attr("y", d => y(d.tripPrice))
-    .attr("width", x.bandwidth())
-    .attr("height", d => height - y(d.tripPrice))
-    .attr("fill", "skyblue");
+        const bars = svg.selectAll(".bar")
+            .data(data)
+            .enter()
+            .append("rect")
+            .attr("class", "bar")
+            .attr("x", d => x(d.trafficCondition))
+            .attr("y", d => y(d.tripPrice))
+            .attr("width", x.bandwidth())
+            .attr("height", d => height - y(d.tripPrice))
+            .attr("fill", "skyblue");
 
         const tooltip = d3.select("#tooltip");
 
