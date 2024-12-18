@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taxi Trip Analytics</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            margin: 10px;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .chart-title {
+            font-size: 18px;
+            margin: 10px 0; /* Previously was margin-bottom: 20px; */
+            
+            text-align: center;
+        }
+
+        .chart-container {
+            box-sizing: border-box;
+            width: 700px; /* Each plot will be half of 1440px width */
+            height: 500px; /* Each plot will be half of 1080px height */
+            padding: 10px;
+        }
+
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .dot {
+            fill: steelblue;
+            opacity: 0.7;
+            cursor: pointer;
+        }
+
+        .dot:hover {
+            fill: orange;
+            opacity: 1;
+        }
+
+        .bar {
+            fill: skyblue;
+        }
+
+        .tooltip {
+            position: absolute;
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 5px;
+            border-radius: 5px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+            text-align: center;
+        }
+
+        .label {
+            font-size: 10px;
+        }
+
+        .value {
+            fill: black;
+            font-size: 10px;
+            pointer-events: none;
+        }
+
+        .axis text {
+            fill: white;
+        }
+
+        .axis path, .axis line {
+            stroke: white;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="chart-container">
+        <h2 class="chart-title">Correlation Heatmap</h2>
+        <svg id="correlation-heatmap" width="550" height="550"></svg>
+    </div>
+
+    <div class="chart-container bar-container">
+        <h2 class="chart-title">Average Trip Price by Traffic Condition</h2>
+        <svg id="trafficChart"></svg>
+    </div>
+
+    <div class="chart-container">
+        <h2 class="chart-title">Trip Price vs Trip Duration</h2>
+        <svg id="duration-price-chart"></svg>
+    </div>
+
+    <div class="chart-container">
+        <h2 class="chart-title">Trip Price vs Trip Distance</h2>
+        <svg id="distance-price-chart"></svg>
+    </div>
+
+    <div class="tooltip" id="tooltip"></div>
+
+    <script>
+        // Shared tooltip
+        const tooltip = d3.select("#tooltip");
+
+        // Plot 1: Taxi Trip Price vs. Trip Duration
+        function p1() {
+            const margin = { top: 40, right: 20, bottom: 50, left: 60 };
+            const width = 700 - margin.left - margin.right;
+            const height = 450 - margin.top - margin.bottom;
+
+            const svg = d3.select("#duration-price-chart")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+                .append("g")
+                .attr("transform", `translate(${margin.left}, ${margin.top})`);
+
+            d3.csv("taxi_trip_pricing.csv").then(data => {
+                data = data.filter(d => d.Trip_Duration_Minutes > 0 && d.Trip_Price > 0);
+                
+                data.forEach(d => {
+                    d.Trip_Price = +d.Trip_Price;
+                    d.Trip_Duration_Minutes = +d.Trip_Duration_Minutes;
+                });
+
+                const x = d3.scaleLinear()
+                    .domain([0, d3.max(data, d => d.Trip_Duration_Minutes)]).nice()
+                    .range([0, width]);
+
+                const y = d3.scaleLinear()
+                    .domain([0, d3.max(data, d => d.Trip_Price)]).nice()
+                    .range([height, 0]);
+
+                svg.append("g")
+                    .attr("transform", `translate(0, ${height})`)
+                    .call(d3.axisBottom(x).ticks(10).tickFormat(d => `${d} min`));
+
+                svg.append("g")
+                    .call(d3.axisLeft(y).ticks(5));
+
+                svg.append("text")
+                    .attr("x", width / 2)
+                    .attr("y", height + margin.bottom - 10)
+                    .style("text-anchor", "middle")
+                    .text("Trip Duration (minutes)");
+
+                svg.append("text")
+                    .attr("x", -height / 2)
+                    .attr("y", -margin.left + 20)
+                    .attr("transform", "rotate(-90)")
+                    .style("text-anchor", "middle")
+                    .text("Trip Price ($)");
+
+                svg.selectAll(".dot")
+                    .data(data)
+                    .enter()
+                    .append("circle")
+                    .attr("class", "dot")
+                    .attr("cx", d => x(d.Trip_Duration_Minutes))
+                    .attr("cy", d => y(d.Trip_Price))
+                    .attr("r", 5)
+                    .on("mouseover", (event, d) => {
+                        tooltip.style("opacity", 1)
+                            .html(`<strong>Duration: ${d.Trip_Duration_Minutes} min</strong><br>Price: $${d.Trip_Price.toFixed(2)}`);
+                    })
+                    .on("mousemove", (event) => {
+                        tooltip.style("top", `${event.pageY + 10}px`)
+                            .style("left", `${event.pageX + 10}px`);
+                    })
+                    .on("mouseout", () => {
+                        tooltip.style("opacity", 0);
+                    });
+            }).catch(error => console.error("Error loading CSV:", error));
+        };
+
+        // Plot 2: Taxi Trip Price vs. Trip Distance
+        function p2() {
+            const margin = { top: 40, right: 30, bottom: 60, left: 70 };
+            const width = 700 - margin.left - margin.right;
+            const height = 450 - margin.top - margin.bottom;
+
+            const svg = d3.select("#distance-price-chart")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+                .append("g")
+                .attr("transform", `translate(${margin.left}, ${margin.top})`);
+
+            d3.csv("taxi_trip_pricing.csv").then(data => {
+                data = data.filter(d => d.Trip_Distance_km && d.Trip_Price)
+                           .map(d => ({
+                               distance: (+d.Trip_Distance_km).toFixed(2),
+                               price: (+d.Trip_Price).toFixed(2)
+                           }));
+
+                const x = d3.scaleLinear()
+                    .domain([0, Math.ceil(d3.max(data, d => +d.distance) / 10) * 10])
+                    .range([0, width]);
+
+                const y = d3.scaleLinear()
+                    .domain([0, d3.max(data, d => +d.price) + 20])
+                    .range([height, 0]);
+
+                svg.append("g")
+                    .attr("transform", `translate(0, ${height})`)
+                    .call(d3.axisBottom(x).tickValues(d3.range(0, Math.ceil(d3.max(data, d => +d.distance)), 10)).tickFormat(d => `${d} km`));
+
+                svg.append("text")
+                    .attr("x", width / 2)
+                    .attr("y", height + 40)
+                    .style("text-anchor", "middle")
+                    .text("Trip Distance (km)");
+
+                svg.append("g")
+                    .call(d3.axisLeft(y));
+
+                svg.append("text")
+                    .attr("transform", "rotate(-90)")
+                    .attr("x", -height / 2)
+                    .attr("y", -50)
+                    .style("text-anchor", "middle")
+                    .text("Trip Price ($)");
+
+                svg.selectAll(".dot")
+                    .data(data)
+                    .enter()
+                    .append("circle")
+                    .attr("class", "dot")
+                    .attr("cx", d => x(+d.distance))
+                    .attr("cy", d => y(+d.price))
+                    .attr("r", 4)
+                    .on("mouseover", (event, d) => {
+                        tooltip.style("opacity", 1)
+                            .html(`Distance: ${d.distance} km<br>Price: $${d.price}`);
+                    })
+                    .on("mousemove", (event) => {
+                        tooltip.style("top", `${event.pageY + 10}px`)
+                            .style("left", `${event.pageX + 10}px`);
+                    })
+                    .on("mouseout", () => {
+                        tooltip.style("opacity", 0);
+                    });
+
+            }).catch(error => console.error("Error loading CSV:", error));
+        };
+
+        // Plot 3: Average Trip Price by Traffic Condition (Bar Chart)
+        function p3() {
+            const data = [
+                { trafficCondition: 'High', tripPrice: 65.06 },
+                { trafficCondition: 'Low', tripPrice: 55.60 },
+                { trafficCondition: 'Medium', tripPrice: 54.55 }
+            ];
+            
+            const margin = { top: 20, right: 80, bottom: 90, left: 80 };
+            const width = 700 - margin.left - margin.right;
+            const height = 500 - margin.top - margin.bottom;
+
+            const svg = d3.select("#trafficChart")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+                .append("g")
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+            const x = d3.scaleBand()
+                .domain(data.map(d => d.trafficCondition))
+                .range([0, width])
+                .padding(0.1);
+
+            const y = d3.scaleLinear()
+                .domain([0, d3.max(data, d => d.tripPrice)])
+                .nice()
+                .range([height, 0]);
+
+            svg.append("g")
+                .attr("transform", "translate(0," + height + ")")
+                .call(d3.axisBottom(x))
+                .selectAll("text")
+                .style("fill", "white");
+
+            svg.append("g")
+                .call(d3.axisLeft(y))
+                .selectAll("text")
+                .style("fill", "white");
+
+            svg.selectAll(".bar")
+                .data(data)
+                .enter()
+                .append("rect")
+                .attr("class", "bar")
+                .attr("x", d => x(d.trafficCondition))
+                .attr("y", d => y(d.tripPrice))
+                .attr("width", x.bandwidth())
+                .attr("height", d => height - y(d.tripPrice))
+                .on("mouseover", function(event, d) {
+                    tooltip.style("opacity", 1)
+                        .html("Avg Price: $" + d.tripPrice.toFixed(2));
+                })
+                .on("mousemove", (event) => {
+                    tooltip.style("top", `${event.pageY + 10}px`)
+                        .style("left", `${event.pageX + 10}px`);
+                })
+                .on("mouseout", function() {
+                    tooltip.style("opacity", 0);
+                });
+        };
+
+        // Plot 4: Correlation Heatmap
+        function p4() {
+            const svg = d3.select("#correlation-heatmap");
+            const width = +svg.attr("width");
+            const height = +svg.attr("height");
+            const margin = { top: 30, right: 20, bottom: 50, left: 120 };
+            const heatmapSize = 300;
+
+            function pearsonCorrelation(set1, set2) {
+                const n = set1.length;
+                const mean1 = d3.mean(set1);
+                const mean2 = d3.mean(set2);
+
+                const numerator = d3.sum(set1.map((val, index) => (val - mean1) * (set2[index] - mean2)));
+                const denominator = Math.sqrt(
+                    d3.sum(set1.map(val => (val - mean1) ** 2)) * 
+                    d3.sum(set2.map(val => (val - mean2) ** 2))
+                );
+
+                return numerator / denominator;
+            }
+            
+            function calculateCorrelationMatrix(data, variables) {
+                const matrix = [];
+                variables.forEach((var1, i) => {
+                    matrix[i] = [];
+                    variables.forEach((var2, j) => {
+                        const set1 = data.map(row => +row[var1]);
+                        const set2 = data.map(row => +row[var2]);
+                        matrix[i][j] = pearsonCorrelation(set1, set2);
+                    });
+                });
+                return matrix;
+            }
+
+            d3.csv("taxi_trip_pricing.csv").then(data => {
+                let filter_cols = ["Trip_Price", "Trip_Distance_km", "Base_Fare", "Per_Km_Rate", "Per_Minute_Rate", "Trip_Duration_Minutes"];
+                const variables = Object.keys(data[0]).filter(item => filter_cols.includes(item));
+                variables.sort((a, b) => filter_cols.indexOf(a) - filter_cols.indexOf(b));
+                const correlationMatrix = calculateCorrelationMatrix(data, variables);
+                const numVars = variables.length;
+                const cellSize = heatmapSize / numVars;
+
+                const colorScale = d3.scaleSequential(d3.interpolateRdBu).domain([-1, 1]);
+
+                svg.selectAll("rect")
+                    .data(correlationMatrix.flatMap((row, i) => row.map((value, j) => ({ value, row: i, col: j }))))
+                    .enter().append("rect")
+                    .attr("x", d => d.col * cellSize + margin.left)
+                    .attr("y", d => d.row * cellSize + margin.top)
+                    .attr("width", cellSize)
+                    .attr("height", cellSize)
+                    .attr("fill", d => colorScale(d.value));
+
+                svg.selectAll(".valueText")
+                    .data(correlationMatrix.flatMap((row, i) => row.map((value, j) => ({ value, row: i, col: j }))))
+                    .enter().append("text")
+                    .attr("class", "value")
+                    .attr("x", d => d.col * cellSize + margin.left + cellSize / 2)
+                    .attr("y", d => d.row * cellSize + margin.top + cellSize / 2)
+                    .attr("dy", ".35em")
+                    .attr("text-anchor", "middle")
+                    .text(d => d.value.toFixed(2));
+
+                svg.selectAll(".rowLabel")
+                    .data(variables)
+                    .enter().append("text")
+                    .attr("class", "label")
+                    .attr("x", margin.left - 5)
+                    .attr("y", (d, i) => i * cellSize + cellSize / 2 + margin.top)
+                    .attr("dy", ".35em")
+                    .attr("text-anchor", "end")
+                    .text(d => d);
+
+                svg.selectAll(".colLabel")
+                .data(variables)
+                .enter().append("text")
+                .attr("class", "label")
+                .attr("y", numVars * cellSize + margin.top + 30) 
+                .attr("transform", (d, i) => `translate(${i * cellSize + cellSize / 2 - heatmapSize/1.25},${numVars * cellSize + margin.top + 10}) rotate(-90)`) 
+                .style("text-anchor", "end") 
+                .text(d => d);
+             
+                const legendWidth = 20; 
+                const legendHeight = 300; 
+                const legendGradient = svg.append("defs")
+                    .append("linearGradient")
+                    .attr("id", "legend-gradient")
+                    .attr("x1", "0%")
+                    .attr("x2", "0%")
+                    .attr("y1", "0%")
+                    .attr("y2", "100%"); 
+
+                legendGradient.append("stop")
+                    .attr("offset", "0%")
+                    .attr("stop-color", colorScale(1));
+
+                legendGradient.append("stop")
+                    .attr("offset", "100%")
+                    .attr("stop-color", colorScale(-1));
+
+                const legendOffset = 90
+                
+                svg.append("rect")
+                    .attr("x", width - legendWidth - margin.right)
+                    .attr("y", height / 2 - legendHeight / 2 - legendOffset)
+                    .attr("width", legendWidth)
+                    .attr("height", legendHeight)
+                    .style("fill", "url(#legend-gradient)");
+
+                const legendScale = d3.scaleLinear()
+                    .domain([1, -1]) 
+                    .range([0, legendHeight]);
+
+                const legendAxis = d3.axisRight(legendScale) 
+                    .ticks(5)
+                    .tickSize(6);
+
+                svg.append("g")
+                    .attr("class", "legend-axis")
+                    .attr("transform", `translate(${width - margin.right}, ${height / 2 - legendHeight / 2 - legendOffset})`) 
+                    .call(legendAxis);
+            }).catch(error => console.error("Error loading CSV:", error));
+        };
+
+        p1();
+        p2();
+        p3();
+        p4();
+
+    </script>
+</body>
+</html>
