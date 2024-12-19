@@ -266,38 +266,53 @@
                 { trafficCondition: 'Low', tripPrice: 55.60 },
                 { trafficCondition: 'Medium', tripPrice: 54.55 }
             ];
-            
+    
             const margin = { top: 20, right: 80, bottom: 90, left: 80 };
             const width = 700 - margin.left - margin.right;
             const height = 500 - margin.top - margin.bottom;
-
+    
             const svg = d3.select("#trafficChart")
                 .attr("width", width + margin.left + margin.right)
                 .attr("height", height + margin.top + margin.bottom)
                 .append("g")
-                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
+                .attr("transform", `translate(${margin.left}, ${margin.top})`);
+    
             const x = d3.scaleBand()
                 .domain(data.map(d => d.trafficCondition))
                 .range([0, width])
                 .padding(0.1);
-
+    
             const y = d3.scaleLinear()
                 .domain([0, d3.max(data, d => d.tripPrice)])
                 .nice()
                 .range([height, 0]);
 
             svg.append("g")
-                .attr("transform", "translate(0," + height + ")")
+                .attr("transform", `translate(0, ${height})`)
                 .call(d3.axisBottom(x))
                 .selectAll("text")
-                .style("fill", "white");
-
+                .style("fill", "black");
+    
+            svg.append("text")
+                .attr("x", width / 2)
+                .attr("y", height + margin.bottom - 20)
+                .attr("text-anchor", "middle")
+                .style("fill", "black")
+              
+    
             svg.append("g")
                 .call(d3.axisLeft(y))
                 .selectAll("text")
-                .style("fill", "white");
-
+                .style("fill", "black");
+    
+            svg.append("text")
+                .attr("transform", "rotate(-90)")
+                .attr("x", -height / 2)
+                .attr("y", -margin.left + 20)
+                .attr("text-anchor", "middle")
+                .style("fill", "black")
+                .text("Average Trip Price ($)");
+    
             svg.selectAll(".bar")
                 .data(data)
                 .enter()
@@ -307,6 +322,7 @@
                 .attr("y", d => y(d.tripPrice))
                 .attr("width", x.bandwidth())
                 .attr("height", d => height - y(d.tripPrice))
+                .attr("fill", "skyblue")
                 .on("mouseover", function(event, d) {
                     tooltip.style("opacity", 1)
                         .html("Avg Price: $" + d.tripPrice.toFixed(2));
@@ -318,7 +334,7 @@
                 .on("mouseout", function() {
                     tooltip.style("opacity", 0);
                 });
-        };
+        }
 
         // Plot 4: Correlation Heatmap
         function p4() {
