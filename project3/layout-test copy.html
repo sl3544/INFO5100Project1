@@ -12,7 +12,7 @@
             flex-wrap: wrap;
             justify-content: center;
             align-items: flex-start;
-            margin: 2vw;
+            margin: 2vw 0;
             width: 100%;
             height: 100%;
             color:white;
@@ -32,16 +32,34 @@
         }
 
         .chart-container {
-            width: 700px; /* Each plot will be half of 1440px width */
-            height: auto; 
-            /* padding: .2vw; */
-            margin:.5vw 0 2vw 0;
-            background-color:black;
+            width: 47vw; /* half the viewport width */
+            height: auto;
+            margin: 1vw;
+            background-color: black;
+        }
+
+        .flex-row {
+            display: flex;
+            flex-direction: row; /* default row layout */
+            justify-content: space-between;
+            flex-wrap: wrap; /* allow wrapping if needed */
         }
 
         svg {
             width: 100%;
             height: auto;
+        }
+
+        @media screen and (max-width: 768px) {
+            .flex-row {
+                flex-direction: column; /* switch to column layout in a narrow screen on mobile device*/
+                align-items: center;
+            }
+
+            .chart-container {
+                width: 90vw;
+                margin: 1vw auto;
+            }
         }
 
         .dot {
@@ -106,6 +124,11 @@
             padding:1vw 0;
         }
 
+        #filter-panel{
+            justify-content:center;
+            gap:2vw;
+        }
+
         .filter-botton {
             background-color: #34495e;
             color: white;
@@ -142,15 +165,16 @@
         Our project wants to explore how various factors—such as trip distance, time of day, traffic conditions, and weather—impact taxi trip prices.
         To make the data more accessible and engaging, we have designed four distinct visualizations. These charts provide viewers with multiple perspectives, enabling them to dive deeper into the patterns and influences behind their everyday taxi fares.
     </p>
-    
-    <div class="chart-container">
-        <h2 class="chart-title">Correlation Heatmap</h2>
-        <svg id="correlation-heatmap" width="550" height="500"></svg>
-    </div>
+    <div class="flex-row">
+        <div class="chart-container">
+            <h2 class="chart-title">Correlation Heatmap</h2>
+            <svg id="correlation-heatmap" width="550" height="500"></svg>
+        </div>
 
-    <div class="chart-container bar-container">
-        <h2 class="chart-title">Average Trip Price by Traffic Condition</h2>
-        <svg id="trafficChart"></svg>
+        <div class="chart-container bar-container">
+            <h2 class="chart-title">Average Trip Price by Traffic Condition</h2>
+            <svg id="trafficChart"></svg>
+        </div>
     </div>
 
     <!-- Filter Panel -->
